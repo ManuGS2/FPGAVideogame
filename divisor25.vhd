@@ -9,6 +9,7 @@ entity divisor25 is
 		clk_vga					:	out STD_LOGIC
 	);
 end;
+
  
 architecture behavioral of divisor25 is
 signal clock : StD_LOGIC := '0';	

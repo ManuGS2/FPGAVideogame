@@ -30,7 +30,7 @@ constant v_backP 	:	INTEGER := 35;		-- back porch 35-2 = 33
 constant v_frontP	:	INTEGER := 10;		-- front porch
 constant v_cycle	:	INTEGER := 525; 	-- ciclo vertica
 
--- Contadores para el lado horizontal y el lado vertical 
+-- Contadores para el lado horizontal y el lado vertical  
 signal v_cont	:	INTEGER := 0;
 signal h_cont	:	INTEGER := 0;
 

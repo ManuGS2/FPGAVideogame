@@ -21,6 +21,7 @@ component divisor25 is
 	);
 end component;
 
+
 component video_sincronizacion is
 	PORT(
 		clk_vga	:	in STD_LOGIC;

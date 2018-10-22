@@ -6,6 +6,7 @@ use ieee.std_logic_unsigned.all;
 -- Revisar el desplazamiento vertical,ya que no se muestra bien la imagen
 -- Parace que es causado cuando U= '1' o D='1' porque se debe resetear la imagen
 -- Cuando se desplaza hacia arriba o hacia abajo
+--
 
 
 entity print is
