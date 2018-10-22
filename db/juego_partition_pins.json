@@ -1,0 +1,61 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "vgaR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hs",
+					"strict" : false
+				},
+				{
+					"name" : "vs",
+					"strict" : false
+				},
+				{
+					"name" : "Ubtn",
+					"strict" : false
+				},
+				{
+					"name" : "Dbtn",
+					"strict" : false
+				},
+				{
+					"name" : "Rbtn",
+					"strict" : false
+				},
+				{
+					"name" : "Lbtn",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

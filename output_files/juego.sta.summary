@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'divisor25:divisor|clock'
+Slack : -10.336
+TNS   : -412.739
+
+Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|clk25'
+Slack : -2.517
+TNS   : -45.567
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -0.596
+TNS   : -0.596
+
+Type  : Slow 1200mV 85C Model Hold 'print:print_cuadrado|clk25'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.518
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'divisor25:divisor|clock'
+Slack : 0.640
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -4.403
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divisor25:divisor|clock'
+Slack : -1.403
+TNS   : -141.703
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|clk25'
+Slack : -1.403
+TNS   : -29.463
+
+Type  : Slow 1200mV 0C Model Setup 'divisor25:divisor|clock'
+Slack : -9.507
+TNS   : -372.213
+
+Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|clk25'
+Slack : -2.202
+TNS   : -40.191
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -0.416
+TNS   : -0.416
+
+Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|clk25'
+Slack : 0.290
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.370
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'divisor25:divisor|clock'
+Slack : 0.592
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -4.403
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divisor25:divisor|clock'
+Slack : -1.403
+TNS   : -141.703
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|clk25'
+Slack : -1.403
+TNS   : -29.463
+
+Type  : Fast 1200mV 0C Model Setup 'divisor25:divisor|clock'
+Slack : -4.205
+TNS   : -125.598
+
+Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|clk25'
+Slack : -0.452
+TNS   : -6.794
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.150
+TNS   : -0.150
+
+Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|clk25'
+Slack : 0.142
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'divisor25:divisor|clock'
+Slack : 0.246
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -4.233
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divisor25:divisor|clock'
+Slack : -1.000
+TNS   : -101.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|clk25'
+Slack : -1.000
+TNS   : -21.000
+
+------------------------------------------------------------

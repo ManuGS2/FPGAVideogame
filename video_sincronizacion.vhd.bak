@@ -1,0 +1,18 @@
+library IEEE;
+use IEEE.STD_Logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity video_sincronizacion is
+	PORT(
+		clk					:	in STD_LOGIC;
+		vgaR, vgaG,vgaB	:	out STD_LOGIC_VECTOR(3 downto 0);
+		hs, vs				:	out STD_LOGIC
+	);
+end;
+
+architecture Behavioral of video_sincronizacion is
+
+begin
+
+end Behavioral;
