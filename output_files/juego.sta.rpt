@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for juego
-Sun Oct 21 20:48:33 2018
+Fri Oct 26 01:33:51 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -91,57 +91,60 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.15        ;
+; Average used               ; 1.35        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  14.6%      ;
+;     Processor 2            ;  35.2%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                                                                 ;
-+----------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------+
-; Clock Name                 ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                        ;
-+----------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------+
-; clk                        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                        ;
-; divisor25:divisor|clock    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { divisor25:divisor|clock }    ;
-; print:print_cuadrado|clk25 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|clk25 } ;
-+----------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                           ;
++-----------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------+
+; Clock Name                              ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                     ;
++-----------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------+
+; clk                                     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                     ;
+; divisor25:divisor|\reloj:clock          ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { divisor25:divisor|\reloj:clock }          ;
+; print:print_cuadrado|clk25              ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|clk25 }              ;
+; print:print_cuadrado|desp_asteroide0[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|desp_asteroide0[0] } ;
++-----------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------+
 
 
-+------------------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                               ;
-+------------+-----------------+----------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                 ; Note ;
-+------------+-----------------+----------------------------+------+
-; 46.14 MHz  ; 46.14 MHz       ; divisor25:divisor|clock    ;      ;
-; 284.33 MHz ; 284.33 MHz      ; print:print_cuadrado|clk25 ;      ;
-+------------+-----------------+----------------------------+------+
++----------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                   ;
++------------+-----------------+--------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                     ; Note ;
++------------+-----------------+--------------------------------+------+
+; 20.92 MHz  ; 20.92 MHz       ; divisor25:divisor|\reloj:clock ;      ;
+; 233.59 MHz ; 233.59 MHz      ; print:print_cuadrado|clk25     ;      ;
++------------+-----------------+--------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+------------------------------------------------------+
-; Slow 1200mV 85C Model Setup Summary                  ;
-+----------------------------+---------+---------------+
-; Clock                      ; Slack   ; End Point TNS ;
-+----------------------------+---------+---------------+
-; divisor25:divisor|clock    ; -10.336 ; -412.739      ;
-; print:print_cuadrado|clk25 ; -2.517  ; -45.567       ;
-; clk                        ; -0.596  ; -0.596        ;
-+----------------------------+---------+---------------+
++-------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                               ;
++-----------------------------------------+---------+---------------+
+; Clock                                   ; Slack   ; End Point TNS ;
++-----------------------------------------+---------+---------------+
+; divisor25:divisor|\reloj:clock          ; -23.400 ; -791.338      ;
+; print:print_cuadrado|clk25              ; -3.281  ; -253.635      ;
+; print:print_cuadrado|desp_asteroide0[0] ; -2.123  ; -88.593       ;
+; clk                                     ; -0.714  ; -0.714        ;
++-----------------------------------------+---------+---------------+
 
 
-+----------------------------------------------------+
-; Slow 1200mV 85C Model Hold Summary                 ;
-+----------------------------+-------+---------------+
-; Clock                      ; Slack ; End Point TNS ;
-+----------------------------+-------+---------------+
-; print:print_cuadrado|clk25 ; 0.324 ; 0.000         ;
-; clk                        ; 0.518 ; 0.000         ;
-; divisor25:divisor|clock    ; 0.640 ; 0.000         ;
-+----------------------------+-------+---------------+
++------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                               ;
++-----------------------------------------+--------+---------------+
+; Clock                                   ; Slack  ; End Point TNS ;
++-----------------------------------------+--------+---------------+
+; print:print_cuadrado|desp_asteroide0[0] ; -0.769 ; -1.928        ;
+; print:print_cuadrado|clk25              ; 0.343  ; 0.000         ;
+; divisor25:divisor|\reloj:clock          ; 0.626  ; 0.000         ;
+; clk                                     ; 0.641  ; 0.000         ;
++-----------------------------------------+--------+---------------+
 
 
 ------------------------------------------
@@ -156,15 +159,16 @@ No paths to report.
 No paths to report.
 
 
-+-----------------------------------------------------+
-; Slow 1200mV 85C Model Minimum Pulse Width Summary   ;
-+----------------------------+--------+---------------+
-; Clock                      ; Slack  ; End Point TNS ;
-+----------------------------+--------+---------------+
-; clk                        ; -3.000 ; -4.403        ;
-; divisor25:divisor|clock    ; -1.403 ; -141.703      ;
-; print:print_cuadrado|clk25 ; -1.403 ; -29.463       ;
-+----------------------------+--------+---------------+
++------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary                ;
++-----------------------------------------+--------+---------------+
+; Clock                                   ; Slack  ; End Point TNS ;
++-----------------------------------------+--------+---------------+
+; clk                                     ; -3.000 ; -4.403        ;
+; divisor25:divisor|\reloj:clock          ; -1.403 ; -158.539      ;
+; print:print_cuadrado|clk25              ; -1.403 ; -127.673      ;
+; print:print_cuadrado|desp_asteroide0[0] ; 0.329  ; 0.000         ;
++-----------------------------------------+--------+---------------+
 
 
 -----------------------------------------------
@@ -173,37 +177,39 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-----------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                               ;
-+-----------+-----------------+----------------------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name                 ; Note ;
-+-----------+-----------------+----------------------------+------+
-; 49.97 MHz ; 49.97 MHz       ; divisor25:divisor|clock    ;      ;
-; 312.3 MHz ; 312.3 MHz       ; print:print_cuadrado|clk25 ;      ;
-+-----------+-----------------+----------------------------+------+
++----------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                    ;
++------------+-----------------+--------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                     ; Note ;
++------------+-----------------+--------------------------------+------+
+; 22.89 MHz  ; 22.89 MHz       ; divisor25:divisor|\reloj:clock ;      ;
+; 249.81 MHz ; 249.81 MHz      ; print:print_cuadrado|clk25     ;      ;
++------------+-----------------+--------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+-----------------------------------------------------+
-; Slow 1200mV 0C Model Setup Summary                  ;
-+----------------------------+--------+---------------+
-; Clock                      ; Slack  ; End Point TNS ;
-+----------------------------+--------+---------------+
-; divisor25:divisor|clock    ; -9.507 ; -372.213      ;
-; print:print_cuadrado|clk25 ; -2.202 ; -40.191       ;
-; clk                        ; -0.416 ; -0.416        ;
-+----------------------------+--------+---------------+
++-------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                                ;
++-----------------------------------------+---------+---------------+
+; Clock                                   ; Slack   ; End Point TNS ;
++-----------------------------------------+---------+---------------+
+; divisor25:divisor|\reloj:clock          ; -21.342 ; -718.772      ;
+; print:print_cuadrado|clk25              ; -3.003  ; -228.634      ;
+; print:print_cuadrado|desp_asteroide0[0] ; -1.995  ; -83.740       ;
+; clk                                     ; -0.534  ; -0.534        ;
++-----------------------------------------+---------+---------------+
 
 
-+----------------------------------------------------+
-; Slow 1200mV 0C Model Hold Summary                  ;
-+----------------------------+-------+---------------+
-; Clock                      ; Slack ; End Point TNS ;
-+----------------------------+-------+---------------+
-; print:print_cuadrado|clk25 ; 0.290 ; 0.000         ;
-; clk                        ; 0.370 ; 0.000         ;
-; divisor25:divisor|clock    ; 0.592 ; 0.000         ;
-+----------------------------+-------+---------------+
++------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                                ;
++-----------------------------------------+--------+---------------+
+; Clock                                   ; Slack  ; End Point TNS ;
++-----------------------------------------+--------+---------------+
+; print:print_cuadrado|desp_asteroide0[0] ; -0.576 ; -1.639        ;
+; print:print_cuadrado|clk25              ; 0.308  ; 0.000         ;
+; clk                                     ; 0.504  ; 0.000         ;
+; divisor25:divisor|\reloj:clock          ; 0.580  ; 0.000         ;
++-----------------------------------------+--------+---------------+
 
 
 -----------------------------------------
@@ -218,15 +224,16 @@ No paths to report.
 No paths to report.
 
 
-+-----------------------------------------------------+
-; Slow 1200mV 0C Model Minimum Pulse Width Summary    ;
-+----------------------------+--------+---------------+
-; Clock                      ; Slack  ; End Point TNS ;
-+----------------------------+--------+---------------+
-; clk                        ; -3.000 ; -4.403        ;
-; divisor25:divisor|clock    ; -1.403 ; -141.703      ;
-; print:print_cuadrado|clk25 ; -1.403 ; -29.463       ;
-+----------------------------+--------+---------------+
++------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary                 ;
++-----------------------------------------+--------+---------------+
+; Clock                                   ; Slack  ; End Point TNS ;
++-----------------------------------------+--------+---------------+
+; clk                                     ; -3.000 ; -4.403        ;
+; divisor25:divisor|\reloj:clock          ; -1.403 ; -158.539      ;
+; print:print_cuadrado|clk25              ; -1.403 ; -127.673      ;
+; print:print_cuadrado|desp_asteroide0[0] ; 0.394  ; 0.000         ;
++-----------------------------------------+--------+---------------+
 
 
 ----------------------------------------------
@@ -235,26 +242,28 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-----------------------------------------------------+
-; Fast 1200mV 0C Model Setup Summary                  ;
-+----------------------------+--------+---------------+
-; Clock                      ; Slack  ; End Point TNS ;
-+----------------------------+--------+---------------+
-; divisor25:divisor|clock    ; -4.205 ; -125.598      ;
-; print:print_cuadrado|clk25 ; -0.452 ; -6.794        ;
-; clk                        ; -0.150 ; -0.150        ;
-+----------------------------+--------+---------------+
++------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                               ;
++-----------------------------------------+--------+---------------+
+; Clock                                   ; Slack  ; End Point TNS ;
++-----------------------------------------+--------+---------------+
+; divisor25:divisor|\reloj:clock          ; -9.840 ; -288.153      ;
+; print:print_cuadrado|clk25              ; -0.950 ; -57.740       ;
+; print:print_cuadrado|desp_asteroide0[0] ; -0.468 ; -12.581       ;
+; clk                                     ; -0.211 ; -0.211        ;
++-----------------------------------------+--------+---------------+
 
 
-+----------------------------------------------------+
-; Fast 1200mV 0C Model Hold Summary                  ;
-+----------------------------+-------+---------------+
-; Clock                      ; Slack ; End Point TNS ;
-+----------------------------+-------+---------------+
-; print:print_cuadrado|clk25 ; 0.142 ; 0.000         ;
-; divisor25:divisor|clock    ; 0.246 ; 0.000         ;
-; clk                        ; 0.401 ; 0.000         ;
-+----------------------------+-------+---------------+
++------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                                ;
++-----------------------------------------+--------+---------------+
+; Clock                                   ; Slack  ; End Point TNS ;
++-----------------------------------------+--------+---------------+
+; print:print_cuadrado|desp_asteroide0[0] ; -0.229 ; -0.703        ;
+; print:print_cuadrado|clk25              ; 0.151  ; 0.000         ;
+; divisor25:divisor|\reloj:clock          ; 0.240  ; 0.000         ;
+; clk                                     ; 0.440  ; 0.000         ;
++-----------------------------------------+--------+---------------+
 
 
 -----------------------------------------
@@ -269,15 +278,16 @@ No paths to report.
 No paths to report.
 
 
-+-----------------------------------------------------+
-; Fast 1200mV 0C Model Minimum Pulse Width Summary    ;
-+----------------------------+--------+---------------+
-; Clock                      ; Slack  ; End Point TNS ;
-+----------------------------+--------+---------------+
-; clk                        ; -3.000 ; -4.233        ;
-; divisor25:divisor|clock    ; -1.000 ; -101.000      ;
-; print:print_cuadrado|clk25 ; -1.000 ; -21.000       ;
-+----------------------------+--------+---------------+
++------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary                 ;
++-----------------------------------------+--------+---------------+
+; Clock                                   ; Slack  ; End Point TNS ;
++-----------------------------------------+--------+---------------+
+; clk                                     ; -3.000 ; -4.207        ;
+; divisor25:divisor|\reloj:clock          ; -1.000 ; -113.000      ;
+; print:print_cuadrado|clk25              ; -1.000 ; -91.000       ;
+; print:print_cuadrado|desp_asteroide0[0] ; 0.250  ; 0.000         ;
++-----------------------------------------+--------+---------------+
 
 
 ----------------------------------------------
@@ -286,20 +296,22 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                       ;
-+-----------------------------+----------+-------+----------+---------+---------------------+
-; Clock                       ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+-----------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack            ; -10.336  ; 0.142 ; N/A      ; N/A     ; -3.000              ;
-;  clk                        ; -0.596   ; 0.370 ; N/A      ; N/A     ; -3.000              ;
-;  divisor25:divisor|clock    ; -10.336  ; 0.246 ; N/A      ; N/A     ; -1.403              ;
-;  print:print_cuadrado|clk25 ; -2.517   ; 0.142 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS             ; -458.902 ; 0.0   ; 0.0      ; 0.0     ; -175.569            ;
-;  clk                        ; -0.596   ; 0.000 ; N/A      ; N/A     ; -4.403              ;
-;  divisor25:divisor|clock    ; -412.739 ; 0.000 ; N/A      ; N/A     ; -141.703            ;
-;  print:print_cuadrado|clk25 ; -45.567  ; 0.000 ; N/A      ; N/A     ; -29.463             ;
-+-----------------------------+----------+-------+----------+---------+---------------------+
++---------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                     ;
++------------------------------------------+----------+--------+----------+---------+---------------------+
+; Clock                                    ; Setup    ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------------------------------+----------+--------+----------+---------+---------------------+
+; Worst-case Slack                         ; -23.400  ; -0.769 ; N/A      ; N/A     ; -3.000              ;
+;  clk                                     ; -0.714   ; 0.440  ; N/A      ; N/A     ; -3.000              ;
+;  divisor25:divisor|\reloj:clock          ; -23.400  ; 0.240  ; N/A      ; N/A     ; -1.403              ;
+;  print:print_cuadrado|clk25              ; -3.281   ; 0.151  ; N/A      ; N/A     ; -1.403              ;
+;  print:print_cuadrado|desp_asteroide0[0] ; -2.123   ; -0.769 ; N/A      ; N/A     ; 0.250               ;
+; Design-wide TNS                          ; -1134.28 ; -1.928 ; 0.0      ; 0.0     ; -290.615            ;
+;  clk                                     ; -0.714   ; 0.000  ; N/A      ; N/A     ; -4.403              ;
+;  divisor25:divisor|\reloj:clock          ; -791.338 ; 0.000  ; N/A      ; N/A     ; -158.539            ;
+;  print:print_cuadrado|clk25              ; -253.635 ; 0.000  ; N/A      ; N/A     ; -127.673            ;
+;  print:print_cuadrado|desp_asteroide0[0] ; -88.593  ; -1.928 ; N/A      ; N/A     ; 0.000               ;
++------------------------------------------+----------+--------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -414,29 +426,35 @@ No synchronizer chains to report.
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Setup Transfers                                                                                     ;
-+----------------------------+----------------------------+----------+----------+----------+----------+
-; From Clock                 ; To Clock                   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+----------------------------+----------------------------+----------+----------+----------+----------+
-; divisor25:divisor|clock    ; clk                        ; 1        ; 1        ; 0        ; 0        ;
-; divisor25:divisor|clock    ; divisor25:divisor|clock    ; 2088     ; 192411   ; 0        ; 2304     ;
-; print:print_cuadrado|clk25 ; divisor25:divisor|clock    ; 70081    ; 1        ; 0        ; 0        ;
-; print:print_cuadrado|clk25 ; print:print_cuadrado|clk25 ; 507      ; 0        ; 0        ; 0        ;
-+----------------------------+----------------------------+----------+----------+----------+----------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                    ;
++-----------------------------------------+-----------------------------------------+-----------+--------------+----------+----------+
+; From Clock                              ; To Clock                                ; RR Paths  ; FR Paths     ; RF Paths ; FF Paths ;
++-----------------------------------------+-----------------------------------------+-----------+--------------+----------+----------+
+; divisor25:divisor|\reloj:clock          ; clk                                     ; 1         ; 1            ; 0        ; 0        ;
+; divisor25:divisor|\reloj:clock          ; divisor25:divisor|\reloj:clock          ; 12848     ; > 2147483647 ; 0        ; 2304     ;
+; print:print_cuadrado|clk25              ; divisor25:divisor|\reloj:clock          ; 271352566 ; 1            ; 0        ; 0        ;
+; print:print_cuadrado|desp_asteroide0[0] ; divisor25:divisor|\reloj:clock          ; 123820329 ; 19619337     ; 0        ; 0        ;
+; print:print_cuadrado|clk25              ; print:print_cuadrado|clk25              ; 2668      ; 0            ; 0        ; 0        ;
+; print:print_cuadrado|desp_asteroide0[0] ; print:print_cuadrado|clk25              ; 14        ; 14           ; 0        ; 0        ;
+; divisor25:divisor|\reloj:clock          ; print:print_cuadrado|desp_asteroide0[0] ; 63        ; 0            ; 9        ; 0        ;
++-----------------------------------------+-----------------------------------------+-----------+--------------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Hold Transfers                                                                                      ;
-+----------------------------+----------------------------+----------+----------+----------+----------+
-; From Clock                 ; To Clock                   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+----------------------------+----------------------------+----------+----------+----------+----------+
-; divisor25:divisor|clock    ; clk                        ; 1        ; 1        ; 0        ; 0        ;
-; divisor25:divisor|clock    ; divisor25:divisor|clock    ; 2088     ; 192411   ; 0        ; 2304     ;
-; print:print_cuadrado|clk25 ; divisor25:divisor|clock    ; 70081    ; 1        ; 0        ; 0        ;
-; print:print_cuadrado|clk25 ; print:print_cuadrado|clk25 ; 507      ; 0        ; 0        ; 0        ;
-+----------------------------+----------------------------+----------+----------+----------+----------+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                     ;
++-----------------------------------------+-----------------------------------------+-----------+--------------+----------+----------+
+; From Clock                              ; To Clock                                ; RR Paths  ; FR Paths     ; RF Paths ; FF Paths ;
++-----------------------------------------+-----------------------------------------+-----------+--------------+----------+----------+
+; divisor25:divisor|\reloj:clock          ; clk                                     ; 1         ; 1            ; 0        ; 0        ;
+; divisor25:divisor|\reloj:clock          ; divisor25:divisor|\reloj:clock          ; 12848     ; > 2147483647 ; 0        ; 2304     ;
+; print:print_cuadrado|clk25              ; divisor25:divisor|\reloj:clock          ; 271352566 ; 1            ; 0        ; 0        ;
+; print:print_cuadrado|desp_asteroide0[0] ; divisor25:divisor|\reloj:clock          ; 123820329 ; 19619337     ; 0        ; 0        ;
+; print:print_cuadrado|clk25              ; print:print_cuadrado|clk25              ; 2668      ; 0            ; 0        ; 0        ;
+; print:print_cuadrado|desp_asteroide0[0] ; print:print_cuadrado|clk25              ; 14        ; 14           ; 0        ; 0        ;
+; divisor25:divisor|\reloj:clock          ; print:print_cuadrado|desp_asteroide0[0] ; 63        ; 0            ; 9        ; 0        ;
++-----------------------------------------+-----------------------------------------+-----------+--------------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -459,22 +477,23 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 64    ; 64   ;
-; Unconstrained Output Ports      ; 8     ; 8    ;
-; Unconstrained Output Port Paths ; 64    ; 64   ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 22    ; 22   ;
+; Unconstrained Output Ports      ; 14    ; 14   ;
+; Unconstrained Output Port Paths ; 70    ; 70   ;
 +---------------------------------+-------+------+
 
 
-+------------------------------------------------------------------------------+
-; Clock Status Summary                                                         ;
-+----------------------------+----------------------------+------+-------------+
-; Target                     ; Clock                      ; Type ; Status      ;
-+----------------------------+----------------------------+------+-------------+
-; clk                        ; clk                        ; Base ; Constrained ;
-; divisor25:divisor|clock    ; divisor25:divisor|clock    ; Base ; Constrained ;
-; print:print_cuadrado|clk25 ; print:print_cuadrado|clk25 ; Base ; Constrained ;
-+----------------------------+----------------------------+------+-------------+
++--------------------------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                                   ;
++-----------------------------------------+-----------------------------------------+------+-------------+
+; Target                                  ; Clock                                   ; Type ; Status      ;
++-----------------------------------------+-----------------------------------------+------+-------------+
+; clk                                     ; clk                                     ; Base ; Constrained ;
+; divisor25:divisor|\reloj:clock          ; divisor25:divisor|\reloj:clock          ; Base ; Constrained ;
+; print:print_cuadrado|clk25              ; print:print_cuadrado|clk25              ; Base ; Constrained ;
+; print:print_cuadrado|desp_asteroide0[0] ; print:print_cuadrado|desp_asteroide0[0] ; Base ; Constrained ;
++-----------------------------------------+-----------------------------------------+------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -482,10 +501,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
-; Dbtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lbtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Rbtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; Ubtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -497,10 +514,16 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; hs          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaB[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaB[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaB[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaB[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaG[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaG[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaG[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaG[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaR[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaR[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaR[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaR[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vs          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
@@ -510,10 +533,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
-; Dbtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lbtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Rbtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; Ubtn       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -525,10 +546,16 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; hs          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaB[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaB[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaB[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaB[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaG[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaG[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaG[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaG[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaR[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vgaR[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaR[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; vgaR[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; vs          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +-------------+---------------------------------------------------------------------------------------+
 
@@ -539,18 +566,20 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Oct 21 20:48:11 2018
+    Info: Processing started: Fri Oct 26 01:33:25 2018
 Info: Command: quartus_sta videogame -c juego
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
+Warning (335093): TimeQuest Timing Analyzer is analyzing 72 combinational loops as latches. For more details, run the Check Timing command in the TimeQuest Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'juego.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name divisor25:divisor|clock divisor25:divisor|clock
+    Info (332105): create_clock -period 1.000 -name divisor25:divisor|\reloj:clock divisor25:divisor|\reloj:clock
     Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name print:print_cuadrado|desp_asteroide0[0] print:print_cuadrado|desp_asteroide0[0]
     Info (332105): create_clock -period 1.000 -name print:print_cuadrado|clk25 print:print_cuadrado|clk25
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
@@ -558,80 +587,89 @@ Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -10.336
+Info (332146): Worst-case setup slack is -23.400
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -10.336            -412.739 divisor25:divisor|clock 
-    Info (332119):    -2.517             -45.567 print:print_cuadrado|clk25 
-    Info (332119):    -0.596              -0.596 clk 
-Info (332146): Worst-case hold slack is 0.324
+    Info (332119):   -23.400            -791.338 divisor25:divisor|\reloj:clock 
+    Info (332119):    -3.281            -253.635 print:print_cuadrado|clk25 
+    Info (332119):    -2.123             -88.593 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.714              -0.714 clk 
+Info (332146): Worst-case hold slack is -0.769
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.324               0.000 print:print_cuadrado|clk25 
-    Info (332119):     0.518               0.000 clk 
-    Info (332119):     0.640               0.000 divisor25:divisor|clock 
+    Info (332119):    -0.769              -1.928 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):     0.343               0.000 print:print_cuadrado|clk25 
+    Info (332119):     0.626               0.000 divisor25:divisor|\reloj:clock 
+    Info (332119):     0.641               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000              -4.403 clk 
-    Info (332119):    -1.403            -141.703 divisor25:divisor|clock 
-    Info (332119):    -1.403             -29.463 print:print_cuadrado|clk25 
+    Info (332119):    -1.403            -158.539 divisor25:divisor|\reloj:clock 
+    Info (332119):    -1.403            -127.673 print:print_cuadrado|clk25 
+    Info (332119):     0.329               0.000 print:print_cuadrado|desp_asteroide0[0] 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -9.507
+Info (332146): Worst-case setup slack is -21.342
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -9.507            -372.213 divisor25:divisor|clock 
-    Info (332119):    -2.202             -40.191 print:print_cuadrado|clk25 
-    Info (332119):    -0.416              -0.416 clk 
-Info (332146): Worst-case hold slack is 0.290
+    Info (332119):   -21.342            -718.772 divisor25:divisor|\reloj:clock 
+    Info (332119):    -3.003            -228.634 print:print_cuadrado|clk25 
+    Info (332119):    -1.995             -83.740 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.534              -0.534 clk 
+Info (332146): Worst-case hold slack is -0.576
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.290               0.000 print:print_cuadrado|clk25 
-    Info (332119):     0.370               0.000 clk 
-    Info (332119):     0.592               0.000 divisor25:divisor|clock 
+    Info (332119):    -0.576              -1.639 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):     0.308               0.000 print:print_cuadrado|clk25 
+    Info (332119):     0.504               0.000 clk 
+    Info (332119):     0.580               0.000 divisor25:divisor|\reloj:clock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000              -4.403 clk 
-    Info (332119):    -1.403            -141.703 divisor25:divisor|clock 
-    Info (332119):    -1.403             -29.463 print:print_cuadrado|clk25 
+    Info (332119):    -1.403            -158.539 divisor25:divisor|\reloj:clock 
+    Info (332119):    -1.403            -127.673 print:print_cuadrado|clk25 
+    Info (332119):     0.394               0.000 print:print_cuadrado|desp_asteroide0[0] 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -4.205
+Info (332146): Worst-case setup slack is -9.840
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.205            -125.598 divisor25:divisor|clock 
-    Info (332119):    -0.452              -6.794 print:print_cuadrado|clk25 
-    Info (332119):    -0.150              -0.150 clk 
-Info (332146): Worst-case hold slack is 0.142
+    Info (332119):    -9.840            -288.153 divisor25:divisor|\reloj:clock 
+    Info (332119):    -0.950             -57.740 print:print_cuadrado|clk25 
+    Info (332119):    -0.468             -12.581 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.211              -0.211 clk 
+Info (332146): Worst-case hold slack is -0.229
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.142               0.000 print:print_cuadrado|clk25 
-    Info (332119):     0.246               0.000 divisor25:divisor|clock 
-    Info (332119):     0.401               0.000 clk 
+    Info (332119):    -0.229              -0.703 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):     0.151               0.000 print:print_cuadrado|clk25 
+    Info (332119):     0.240               0.000 divisor25:divisor|\reloj:clock 
+    Info (332119):     0.440               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000              -4.233 clk 
-    Info (332119):    -1.000            -101.000 divisor25:divisor|clock 
-    Info (332119):    -1.000             -21.000 print:print_cuadrado|clk25 
+    Info (332119):    -3.000              -4.207 clk 
+    Info (332119):    -1.000            -113.000 divisor25:divisor|\reloj:clock 
+    Info (332119):    -1.000             -91.000 print:print_cuadrado|clk25 
+    Info (332119):     0.250               0.000 print:print_cuadrado|desp_asteroide0[0] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4821 megabytes
-    Info: Processing ended: Sun Oct 21 20:48:33 2018
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:20
+Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4836 megabytes
+    Info: Processing ended: Fri Oct 26 01:33:51 2018
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:31
 
 

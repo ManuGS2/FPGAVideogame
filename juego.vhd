@@ -1,7 +1,5 @@
 library IEEE;
 use IEEE.STD_Logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
 
 entity juego is
 	PORT(

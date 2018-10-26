@@ -1,0 +1,30 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity random is
+	Port (
+			en : in STD_LOGIC;
+			random_number : out STD_LOGIC_VECTOR (8 downto 0)
+	);
+end random;
+
+architecture Behavioral of random is
+
+signal Qt: STD_LOGIC_VECTOR(8 downto 0) := x"01";
+
+begin
+
+	process(en) is
+		variable tmp : STD_LOGIC := '0';
+	begin
+	
+		if en = '1' then
+			tmp := Qt(8) XOR Qt(4) XOR Qt(3) XOR Qt(2) XOR Qt(0);
+			Qt <= tmp & Qt(8 downto 1);
+		end if;
+		
+	end process;
+	
+	random_number <= Qt;
+
+end Behavioral;

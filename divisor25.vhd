@@ -1,7 +1,5 @@
 library IEEE;
 use IEEE.STD_Logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
 
 entity divisor25 is
 	PORT(
@@ -11,14 +9,14 @@ entity divisor25 is
 end;
 
  
-architecture behavioral of divisor25 is
-signal clock : StD_LOGIC := '0';	
+architecture behavioral of divisor25 is	
 begin
 		
 	reloj : process (clk)  is
+		variable clock : STD_LOGIC := '0';
 	begin
 		if rising_edge(clk) then 
-			clock <= not(clock);
+			clock := not(clock);
 		end if;
 		clk_vga <= clock;
 	end process reloj;

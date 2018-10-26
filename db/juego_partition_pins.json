@@ -12,11 +12,27 @@
 					"strict" : false
 				},
 				{
+					"name" : "vgaR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[3]",
+					"strict" : false
+				},
+				{
 					"name" : "vgaG[0]",
 					"strict" : false
 				},
 				{
 					"name" : "vgaG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[3]",
 					"strict" : false
 				},
 				{
@@ -28,19 +44,19 @@
 					"strict" : false
 				},
 				{
+					"name" : "vgaB[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[3]",
+					"strict" : false
+				},
+				{
 					"name" : "hs",
 					"strict" : false
 				},
 				{
 					"name" : "vs",
-					"strict" : false
-				},
-				{
-					"name" : "Ubtn",
-					"strict" : false
-				},
-				{
-					"name" : "Dbtn",
 					"strict" : false
 				},
 				{

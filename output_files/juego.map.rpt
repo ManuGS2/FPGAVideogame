@@ -1,5 +1,5 @@
 Analysis & Synthesis report for juego
-Sun Oct 21 20:46:32 2018
+Fri Oct 26 01:30:33 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,13 +13,32 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult1
+ 15. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult0
+ 16. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult3
+ 17. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult2
+ 18. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult5
+ 19. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult4
+ 20. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult7
+ 21. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult6
+ 22. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult9
+ 23. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult8
+ 24. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult11
+ 25. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult10
+ 26. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult13
+ 27. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult12
+ 28. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult15
+ 29. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult14
+ 30. lpm_mult Parameter Settings by Entity Instance
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -45,19 +64,19 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 21 20:46:32 2018       ;
+; Analysis & Synthesis Status        ; Successful - Fri Oct 26 01:30:32 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; juego                                       ;
 ; Top-level Entity Name              ; juego                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 840                                         ;
-;     Total combinational functions  ; 840                                         ;
-;     Dedicated logic registers      ; 123                                         ;
-; Total registers                    ; 123                                         ;
+; Total logic elements               ; 2,276                                       ;
+;     Total combinational functions  ; 2,268                                       ;
+;     Dedicated logic registers      ; 205                                         ;
+; Total registers                    ; 205                                         ;
 ; Total pins                         ; 19                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 96                                          ;
 ; Total PLLs                         ; 0                                           ;
 ; UFM blocks                         ; 0                                           ;
 ; ADC blocks                         ; 0                                           ;
@@ -163,76 +182,216 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.3%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                              ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
-; juego.vhd                        ; yes             ; User VHDL File  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd                ;         ;
-; video_sincronizacion.vhd         ; yes             ; User VHDL File  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd ;         ;
-; print.vhd                        ; yes             ; User VHDL File  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd                ;         ;
-; divisor25.vhd                    ; yes             ; User VHDL File  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd            ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; juego.vhd                        ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd                ;         ;
+; video_sincronizacion.vhd         ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd ;         ;
+; print.vhd                        ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd                ;         ;
+; divisor25.vhd                    ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd            ;         ;
+; random.vhd                       ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/random.vhd               ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf                ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc              ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_add_sub.inc             ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/multcore.inc                ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/bypassff.inc                ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altshift.inc                ;         ;
+; db/mult_qgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf          ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                           ;
-+---------------------------------------------+-----------------------------------------+
-; Resource                                    ; Usage                                   ;
-+---------------------------------------------+-----------------------------------------+
-; Estimated Total logic elements              ; 840                                     ;
-;                                             ;                                         ;
-; Total combinational functions               ; 840                                     ;
-; Logic element usage by number of LUT inputs ;                                         ;
-;     -- 4 input functions                    ; 473                                     ;
-;     -- 3 input functions                    ; 94                                      ;
-;     -- <=2 input functions                  ; 273                                     ;
-;                                             ;                                         ;
-; Logic elements by mode                      ;                                         ;
-;     -- normal mode                          ; 631                                     ;
-;     -- arithmetic mode                      ; 209                                     ;
-;                                             ;                                         ;
-; Total registers                             ; 123                                     ;
-;     -- Dedicated logic registers            ; 123                                     ;
-;     -- I/O registers                        ; 0                                       ;
-;                                             ;                                         ;
-; I/O pins                                    ; 19                                      ;
-;                                             ;                                         ;
-; Embedded Multiplier 9-bit elements          ; 0                                       ;
-;                                             ;                                         ;
-; Maximum fan-out node                        ; print:print_cuadrado|\conta:contador[0] ;
-; Maximum fan-out                             ; 111                                     ;
-; Total fan-out                               ; 3031                                    ;
-; Average fan-out                             ; 3.03                                    ;
-+---------------------------------------------+-----------------------------------------+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                  ;
++---------------------------------------------+--------------------------------+
+; Resource                                    ; Usage                          ;
++---------------------------------------------+--------------------------------+
+; Estimated Total logic elements              ; 2,276                          ;
+;                                             ;                                ;
+; Total combinational functions               ; 2268                           ;
+; Logic element usage by number of LUT inputs ;                                ;
+;     -- 4 input functions                    ; 577                            ;
+;     -- 3 input functions                    ; 1126                           ;
+;     -- <=2 input functions                  ; 565                            ;
+;                                             ;                                ;
+; Logic elements by mode                      ;                                ;
+;     -- normal mode                          ; 859                            ;
+;     -- arithmetic mode                      ; 1409                           ;
+;                                             ;                                ;
+; Total registers                             ; 205                            ;
+;     -- Dedicated logic registers            ; 205                            ;
+;     -- I/O registers                        ; 0                              ;
+;                                             ;                                ;
+; I/O pins                                    ; 19                             ;
+;                                             ;                                ;
+; Embedded Multiplier 9-bit elements          ; 96                             ;
+;                                             ;                                ;
+; Maximum fan-out node                        ; divisor25:divisor|\reloj:clock ;
+; Maximum fan-out                             ; 114                            ;
+; Total fan-out                               ; 8723                           ;
+; Average fan-out                             ; 3.35                           ;
++---------------------------------------------+--------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                            ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+----------------------+--------------+
-; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name               ; Entity Name          ; Library Name ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+----------------------+--------------+
-; |juego                          ; 840 (0)             ; 123 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 19   ; 0            ; 0          ; |juego                            ; juego                ; work         ;
-;    |divisor25:divisor|          ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|divisor25:divisor          ; divisor25            ; work         ;
-;    |print:print_cuadrado|       ; 648 (648)           ; 58 (58)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado       ; print                ; work         ;
-;    |video_sincronizacion:video| ; 191 (191)           ; 64 (64)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|video_sincronizacion:video ; video_sincronizacion ; work         ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------+----------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                 ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                 ; Entity Name          ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+----------------------+--------------+
+; |juego                             ; 2268 (0)            ; 205 (0)                   ; 0           ; 0          ; 96           ; 0       ; 48        ; 19   ; 0            ; 0          ; |juego                                                              ; juego                ; work         ;
+;    |divisor25:divisor|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|divisor25:divisor                                            ; divisor25            ; work         ;
+;    |print:print_cuadrado|          ; 2032 (1573)         ; 140 (131)                 ; 0           ; 0          ; 96           ; 0       ; 48        ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado                                         ; print                ; work         ;
+;       |lpm_mult:Mult0|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult0                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult0|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult10|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult10                         ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult10|mult_qgs:auto_generated ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult11|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult11                         ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult11|mult_qgs:auto_generated ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult12|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult12                         ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult12|mult_qgs:auto_generated ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult13|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult13                         ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult13|mult_qgs:auto_generated ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult14|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult14                         ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult14|mult_qgs:auto_generated ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult15|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult15                         ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult15|mult_qgs:auto_generated ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult1|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult1                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult1|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult2|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult2                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult2|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult3|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult3                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult3|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult4|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult4                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult4|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult5|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult5                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult5|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult6|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult6                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult6|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult7|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult7                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult7|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult8|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult8                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult8|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult9|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult9                          ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult9|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
+;       |random:generar_random|      ; 11 (11)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|random:generar_random                   ; random               ; work         ;
+;    |video_sincronizacion:video|    ; 235 (235)           ; 64 (64)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|video_sincronizacion:video                                   ; video_sincronizacion ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                     ;
-+-----------------------------------------------+----------------------------------------+
-; Register name                                 ; Reason for Removal                     ;
-+-----------------------------------------------+----------------------------------------+
-; print:print_cuadrado|vga_color[2,3,6,7,10,11] ; Stuck at GND due to stuck port data_in ;
-; print:print_cuadrado|\divisor25:cuenta[0]     ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 7         ;                                        ;
-+-----------------------------------------------+----------------------------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 48          ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 96          ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 16          ;
+; Mixed Sign Embedded Multipliers       ; 32          ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                    ;
++-----------------------------------------------------+-----------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                     ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------------------------+------------------------+
+; print:print_cuadrado|posX_asteroide0[0]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[1]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[2]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[3]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[4]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[5]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[6]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[7]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[8]             ; print:print_cuadrado|Equal3             ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[0]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[1]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[2]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[3]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[4]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[5]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[6]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[7]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[8]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[0]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[1]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[2]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[3]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[4]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[5]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[6]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[7]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[8]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[0]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[1]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[2]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[3]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[4]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[5]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[6]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[7]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[8]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[0]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[1]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[2]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[3]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[4]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[5]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[6]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[7]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[8]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[0]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[1]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[2]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[3]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[4]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[5]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[6]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[7]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[8]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[0]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[1]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[2]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[3]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[4]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[5]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[6]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[7]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[8]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[0]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[1]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[2]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[3]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[4]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[5]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[6]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[7]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; print:print_cuadrado|posX_asteroide7[8]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
+; Number of user-specified and inferred latches = 72  ;                                         ;                        ;
++-----------------------------------------------------+-----------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++-------------------------------------------+----------------------------------------+
+; Register name                             ; Reason for Removal                     ;
++-------------------------------------------+----------------------------------------+
+; print:print_cuadrado|\divisor25:cuenta[0] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1     ;                                        ;
++-------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -240,44 +399,794 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 123   ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 205   ;
+; Number of registers using Synchronous Clear  ; 70    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 49    ;
+; Number of registers using Clock Enable       ; 64    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------+
-; Inverted Register Statistics                       ;
-+------------------------------------------+---------+
-; Inverted Register                        ; Fan out ;
-+------------------------------------------+---------+
-; print:print_cuadrado|\conta:contador[0]  ; 111     ;
-; print:print_cuadrado|\conta:contador[1]  ; 107     ;
-; print:print_cuadrado|\conta:contador[2]  ; 110     ;
-; print:print_cuadrado|\conta:contador[6]  ; 76      ;
-; print:print_cuadrado|\conta:contador[5]  ; 97      ;
-; print:print_cuadrado|\conta:contador[3]  ; 107     ;
-; print:print_cuadrado|\conta:contador[7]  ; 43      ;
-; print:print_cuadrado|\conta:contador[4]  ; 54      ;
-; print:print_cuadrado|\conta:contador[9]  ; 13      ;
-; print:print_cuadrado|\conta:contador[8]  ; 17      ;
-; print:print_cuadrado|\conta:contador[10] ; 1       ;
-; Total number of inverted registers = 11  ;         ;
-+------------------------------------------+---------+
++------------------------------------------------------------+
+; Inverted Register Statistics                               ;
++--------------------------------------------------+---------+
+; Inverted Register                                ; Fan out ;
++--------------------------------------------------+---------+
+; print:print_cuadrado|\contador_nave:contador[0]  ; 110     ;
+; print:print_cuadrado|\contador_nave:contador[1]  ; 108     ;
+; print:print_cuadrado|\contador_nave:contador[2]  ; 112     ;
+; print:print_cuadrado|\contador_nave:contador[6]  ; 77      ;
+; print:print_cuadrado|\contador_nave:contador[5]  ; 99      ;
+; print:print_cuadrado|\contador_nave:contador[3]  ; 105     ;
+; print:print_cuadrado|\contador_nave:contador[7]  ; 43      ;
+; print:print_cuadrado|\contador_nave:contador[4]  ; 55      ;
+; print:print_cuadrado|\contador_nave:contador[9]  ; 14      ;
+; print:print_cuadrado|\contador_nave:contador[8]  ; 16      ;
+; print:print_cuadrado|despX[8]                    ; 6       ;
+; print:print_cuadrado|despX[5]                    ; 7       ;
+; print:print_cuadrado|despX[0]                    ; 7       ;
+; print:print_cuadrado|despX[4]                    ; 6       ;
+; print:print_cuadrado|\contador_nave:contador[10] ; 1       ;
+; print:print_cuadrado|random:generar_random|Qt[0] ; 9       ;
+; Total number of inverted registers = 16          ;         ;
++--------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |juego|print:print_cuadrado|despY[9] ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |juego|print:print_cuadrado|despX[6] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |juego|print:print_cuadrado|despX[10] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |juego|print:print_cuadrado|despX[8]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult1 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult0 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult3 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult2 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult5 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult4 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult7 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult6 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult9 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult8 ;
++------------------------------------------------+----------+--------------------------+
+; Parameter Name                                 ; Value    ; Type                     ;
++------------------------------------------------+----------+--------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY               ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY             ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE             ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE           ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                  ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                  ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                  ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                  ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                  ;
+; LATENCY                                        ; 0        ; Untyped                  ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                  ;
+; USE_EAB                                        ; OFF      ; Untyped                  ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                  ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                  ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                  ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K      ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                  ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                  ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                  ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                  ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                  ;
++------------------------------------------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult11 ;
++------------------------------------------------+----------+---------------------------+
+; Parameter Name                                 ; Value    ; Type                      ;
++------------------------------------------------+----------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                   ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                   ;
+; LATENCY                                        ; 0        ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; USE_EAB                                        ; OFF      ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                   ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                   ;
++------------------------------------------------+----------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult10 ;
++------------------------------------------------+----------+---------------------------+
+; Parameter Name                                 ; Value    ; Type                      ;
++------------------------------------------------+----------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                   ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                   ;
+; LATENCY                                        ; 0        ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; USE_EAB                                        ; OFF      ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                   ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                   ;
++------------------------------------------------+----------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult13 ;
++------------------------------------------------+----------+---------------------------+
+; Parameter Name                                 ; Value    ; Type                      ;
++------------------------------------------------+----------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                   ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                   ;
+; LATENCY                                        ; 0        ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; USE_EAB                                        ; OFF      ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                   ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                   ;
++------------------------------------------------+----------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult12 ;
++------------------------------------------------+----------+---------------------------+
+; Parameter Name                                 ; Value    ; Type                      ;
++------------------------------------------------+----------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                   ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                   ;
+; LATENCY                                        ; 0        ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; USE_EAB                                        ; OFF      ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                   ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                   ;
++------------------------------------------------+----------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult15 ;
++------------------------------------------------+----------+---------------------------+
+; Parameter Name                                 ; Value    ; Type                      ;
++------------------------------------------------+----------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                   ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                   ;
+; LATENCY                                        ; 0        ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; USE_EAB                                        ; OFF      ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                   ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                   ;
++------------------------------------------------+----------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult14 ;
++------------------------------------------------+----------+---------------------------+
+; Parameter Name                                 ; Value    ; Type                      ;
++------------------------------------------------+----------+---------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE            ;
+; LPM_WIDTHA                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHB                                     ; 32       ; Untyped                   ;
+; LPM_WIDTHP                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHR                                     ; 64       ; Untyped                   ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                   ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                   ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                   ;
+; LATENCY                                        ; 0        ; Untyped                   ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                   ;
+; USE_EAB                                        ; OFF      ; Untyped                   ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                   ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                   ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                   ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K       ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                   ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                   ;
+; CBXI_PARAMETER                                 ; mult_qgs ; Untyped                   ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                   ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                   ;
++------------------------------------------------+----------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                               ;
++---------------------------------------+--------------------------------------+
+; Name                                  ; Value                                ;
++---------------------------------------+--------------------------------------+
+; Number of entity instances            ; 16                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult1  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult0  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult3  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult2  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult5  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult4  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult7  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult6  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult9  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult8  ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult11 ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult10 ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult13 ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult12 ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult15 ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
+; Entity Instance                       ; print:print_cuadrado|lpm_mult:Mult14 ;
+;     -- LPM_WIDTHA                     ; 32                                   ;
+;     -- LPM_WIDTHB                     ; 32                                   ;
+;     -- LPM_WIDTHP                     ; 64                                   ;
+;     -- LPM_REPRESENTATION             ; SIGNED                               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                   ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                   ;
+;     -- USE_EAB                        ; OFF                                  ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                 ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                   ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                   ;
++---------------------------------------+--------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -286,22 +1195,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 123                         ;
-;     ENA               ; 49                          ;
-;     plain             ; 74                          ;
-; cycloneiii_lcell_comb ; 843                         ;
-;     arith             ; 209                         ;
-;         2 data inputs ; 190                         ;
-;         3 data inputs ; 19                          ;
-;     normal            ; 634                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 13                          ;
-;         2 data inputs ; 72                          ;
-;         3 data inputs ; 75                          ;
-;         4 data inputs ; 473                         ;
+; cycloneiii_ff         ; 205                         ;
+;     ENA               ; 64                          ;
+;     SCLR              ; 70                          ;
+;     plain             ; 71                          ;
+; cycloneiii_lcell_comb ; 2270                        ;
+;     arith             ; 1409                        ;
+;         2 data inputs ; 415                         ;
+;         3 data inputs ; 994                         ;
+;     normal            ; 861                         ;
+;         1 data inputs ; 32                          ;
+;         2 data inputs ; 120                         ;
+;         3 data inputs ; 132                         ;
+;         4 data inputs ; 577                         ;
+; cycloneiii_mac_mult   ; 48                          ;
+; cycloneiii_mac_out    ; 48                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.00                       ;
-; Average LUT depth     ; 9.20                        ;
+; Max LUT depth         ; 14.00                       ;
+; Average LUT depth     ; 6.10                        ;
 +-----------------------+-----------------------------+
 
 
@@ -310,7 +1221,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:21     ;
+; Top            ; 00:00:34     ;
 +----------------+--------------+
 
 
@@ -320,45 +1231,207 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Oct 21 20:45:30 2018
+    Info: Processing started: Fri Oct 26 01:29:07 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off videogame -c juego
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file juego.vhd
-    Info (12022): Found design unit 1: juego-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 15
-    Info (12023): Found entity 1: juego File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 6
+    Info (12022): Found design unit 1: juego-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 13
+    Info (12023): Found entity 1: juego File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file video_sincronizacion.vhd
-    Info (12022): Found design unit 1: video_sincronizacion-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd Line: 15
-    Info (12023): Found entity 1: video_sincronizacion File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd Line: 6
+    Info (12022): Found design unit 1: video_sincronizacion-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd Line: 13
+    Info (12023): Found entity 1: video_sincronizacion File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file print.vhd
-    Info (12022): Found design unit 1: print-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 21
-    Info (12023): Found entity 1: print File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 11
+    Info (12022): Found design unit 1: print-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 15
+    Info (12023): Found entity 1: print File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file divisor25.vhd
-    Info (12022): Found design unit 1: divisor25-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd Line: 13
-    Info (12023): Found entity 1: divisor25 File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd Line: 6
+    Info (12022): Found design unit 1: divisor25-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd Line: 12
+    Info (12023): Found entity 1: divisor25 File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file random.vhd
+    Info (12022): Found design unit 1: random-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/random.vhd Line: 19
+    Info (12023): Found entity 1: random File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/random.vhd Line: 11
 Info (12127): Elaborating entity "juego" for the top level hierarchy
-Info (12128): Elaborating entity "divisor25" for hierarchy "divisor25:divisor" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at divisor25.vhd(22): signal "clock" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd Line: 22
-Info (12128): Elaborating entity "video_sincronizacion" for hierarchy "video_sincronizacion:video" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 54
-Info (12128): Elaborating entity "print" for hierarchy "print:print_cuadrado" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 56
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "vgaR[2]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 10
-    Warning (13410): Pin "vgaR[3]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 10
-    Warning (13410): Pin "vgaG[2]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 10
-    Warning (13410): Pin "vgaG[3]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 10
-    Warning (13410): Pin "vgaB[2]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 10
-    Warning (13410): Pin "vgaB[3]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 10
+Info (12128): Elaborating entity "divisor25" for hierarchy "divisor25:divisor" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 51
+Info (12128): Elaborating entity "video_sincronizacion" for hierarchy "video_sincronizacion:video" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 53
+Info (12128): Elaborating entity "print" for hierarchy "print:print_cuadrado" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at print.vhd(197): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 197
+Warning (10492): VHDL Process Statement warning at print.vhd(201): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 201
+Warning (10492): VHDL Process Statement warning at print.vhd(205): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 205
+Warning (10492): VHDL Process Statement warning at print.vhd(209): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 209
+Warning (10492): VHDL Process Statement warning at print.vhd(213): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 213
+Warning (10492): VHDL Process Statement warning at print.vhd(217): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 217
+Warning (10492): VHDL Process Statement warning at print.vhd(221): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 221
+Warning (10492): VHDL Process Statement warning at print.vhd(225): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 225
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide0", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide1", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide2", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide3", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide4", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide5", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide6", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide7", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide7[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide6[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide5[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide4[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide3[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide2[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide1[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (10041): Inferred latch for "posX_asteroide0[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
+Info (12128): Elaborating entity "random" for hierarchy "print:print_cuadrado|random:generar_random" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 133
+Info (278001): Inferred 16 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult0" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult3" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 344
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult2" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 344
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult5" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 345
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult4" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 345
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 346
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult6" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 346
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult9" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 347
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 347
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult11" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 348
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult10" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 348
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult13" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 349
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult12" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 349
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult15" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 350
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult14" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 350
+Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_mult:Mult1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
+Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_mult:Mult1" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_qgs.tdf
+    Info (12023): Found entity 1: mult_qgs File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 30
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult14|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult14|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult15|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult15|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult12|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult12|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult13|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult13|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult10|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult10|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult11|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult11|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult8|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult8|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult9|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult9|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult6|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult6|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult7|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult7|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult4|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult4|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult5|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult5|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult2|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult2|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult3|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult3|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult0|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult0|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult1|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
+        Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult1|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
+Info (13014): Ignored 1344 buffer(s)
+    Info (13019): Ignored 1344 SOFT buffer(s)
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 859 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Ubtn" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 7
+    Warning (15610): No output dependent on input pin "Dbtn" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 7
+Info (21057): Implemented 2392 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 840 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4821 megabytes
-    Info: Processing ended: Sun Oct 21 20:46:32 2018
-    Info: Elapsed time: 00:01:02
-    Info: Total CPU time (on all processors): 00:01:21
+    Info (21061): Implemented 2277 logic cells
+    Info (21062): Implemented 96 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
+    Info: Peak virtual memory: 4859 megabytes
+    Info: Processing ended: Fri Oct 26 01:30:33 2018
+    Info: Elapsed time: 00:01:26
+    Info: Total CPU time (on all processors): 00:01:48
 
 
