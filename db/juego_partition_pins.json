@@ -60,11 +60,51 @@
 					"strict" : false
 				},
 				{
-					"name" : "Rbtn",
+					"name" : "leds[0]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[1]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[2]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[3]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[4]",
+					"strict" : false
+				},
+				{
+					"name" : "leds[5]",
 					"strict" : false
 				},
 				{
 					"name" : "Lbtn",
+					"strict" : false
+				},
+				{
+					"name" : "Rbtn",
+					"strict" : false
+				},
+				{
+					"name" : "Ubtn",
+					"strict" : false
+				},
+				{
+					"name" : "Dbtn",
+					"strict" : false
+				},
+				{
+					"name" : "shoot",
+					"strict" : false
+				},
+				{
+					"name" : "btnB",
 					"strict" : false
 				},
 				{

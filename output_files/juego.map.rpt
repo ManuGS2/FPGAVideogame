@@ -1,5 +1,5 @@
 Analysis & Synthesis report for juego
-Fri Oct 26 01:30:33 2018
+Mon Nov 12 17:39:36 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -35,10 +35,15 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  27. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult12
  28. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult15
  29. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_mult:Mult14
- 30. lpm_mult Parameter Settings by Entity Instance
- 31. Post-Synthesis Netlist Statistics for Top Partition
- 32. Elapsed Time Per Partition
- 33. Analysis & Synthesis Messages
+ 30. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Div1
+ 31. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Mod0
+ 32. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Div2
+ 33. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Mod1
+ 34. Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Div0
+ 35. lpm_mult Parameter Settings by Entity Instance
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
 
 
 
@@ -64,16 +69,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Oct 26 01:30:32 2018       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 12 17:39:36 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; juego                                       ;
 ; Top-level Entity Name              ; juego                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 2,276                                       ;
-;     Total combinational functions  ; 2,268                                       ;
-;     Dedicated logic registers      ; 205                                         ;
-; Total registers                    ; 205                                         ;
-; Total pins                         ; 19                                          ;
+; Total logic elements               ; 5,858                                       ;
+;     Total combinational functions  ; 5,854                                       ;
+;     Dedicated logic registers      ; 338                                         ;
+; Total registers                    ; 338                                         ;
+; Total pins                         ; 31                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 96                                          ;
@@ -182,105 +187,144 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.2%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                           ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
-; juego.vhd                        ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd                ;         ;
-; video_sincronizacion.vhd         ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd ;         ;
-; print.vhd                        ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd                ;         ;
-; divisor25.vhd                    ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd            ;         ;
-; random.vhd                       ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/random.vhd               ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf                ;         ;
-; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc              ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_add_sub.inc             ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/multcore.inc                ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/bypassff.inc                ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altshift.inc                ;         ;
-; db/mult_qgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf          ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+---------+
+; juego.vhd                        ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd                  ;         ;
+; video_sincronizacion.vhd         ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd   ;         ;
+; print.vhd                        ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd                  ;         ;
+; divisor25.vhd                    ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd              ;         ;
+; random.vhd                       ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/random.vhd                 ;         ;
+; divisorPrint.vhd                 ; yes             ; User VHDL File               ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisorPrint.vhd           ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf                  ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc                ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_add_sub.inc               ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/multcore.inc                  ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/bypassff.inc                  ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altshift.inc                  ;         ;
+; db/mult_qgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf            ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc               ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc           ;         ;
+; db/lpm_divide_ltl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_ltl.tdf      ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_nlh.tdf ;         ;
+; db/alt_u_div_ohe.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_ohe.tdf       ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/add_sub_t3c.tdf         ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/add_sub_u3c.tdf         ;         ;
+; db/lpm_divide_2nl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_2nl.tdf      ;         ;
+; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_1nh.tdf ;         ;
+; db/alt_u_div_cke.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_cke.tdf       ;         ;
+; db/lpm_divide_itl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_itl.tdf      ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_klh.tdf ;         ;
+; db/alt_u_div_ihe.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_ihe.tdf       ;         ;
+; db/lpm_divide_ktl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_ktl.tdf      ;         ;
+; db/sign_div_unsign_mlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_mlh.tdf ;         ;
+; db/alt_u_div_mhe.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_mhe.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                  ;
-+---------------------------------------------+--------------------------------+
-; Resource                                    ; Usage                          ;
-+---------------------------------------------+--------------------------------+
-; Estimated Total logic elements              ; 2,276                          ;
-;                                             ;                                ;
-; Total combinational functions               ; 2268                           ;
-; Logic element usage by number of LUT inputs ;                                ;
-;     -- 4 input functions                    ; 577                            ;
-;     -- 3 input functions                    ; 1126                           ;
-;     -- <=2 input functions                  ; 565                            ;
-;                                             ;                                ;
-; Logic elements by mode                      ;                                ;
-;     -- normal mode                          ; 859                            ;
-;     -- arithmetic mode                      ; 1409                           ;
-;                                             ;                                ;
-; Total registers                             ; 205                            ;
-;     -- Dedicated logic registers            ; 205                            ;
-;     -- I/O registers                        ; 0                              ;
-;                                             ;                                ;
-; I/O pins                                    ; 19                             ;
-;                                             ;                                ;
-; Embedded Multiplier 9-bit elements          ; 96                             ;
-;                                             ;                                ;
-; Maximum fan-out node                        ; divisor25:divisor|\reloj:clock ;
-; Maximum fan-out                             ; 114                            ;
-; Total fan-out                               ; 8723                           ;
-; Average fan-out                             ; 3.35                           ;
-+---------------------------------------------+--------------------------------+
++-----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                   ;
++---------------------------------------------+-------------------------------------------------+
+; Resource                                    ; Usage                                           ;
++---------------------------------------------+-------------------------------------------------+
+; Estimated Total logic elements              ; 5,858                                           ;
+;                                             ;                                                 ;
+; Total combinational functions               ; 5854                                            ;
+; Logic element usage by number of LUT inputs ;                                                 ;
+;     -- 4 input functions                    ; 2398                                            ;
+;     -- 3 input functions                    ; 2189                                            ;
+;     -- <=2 input functions                  ; 1267                                            ;
+;                                             ;                                                 ;
+; Logic elements by mode                      ;                                                 ;
+;     -- normal mode                          ; 3521                                            ;
+;     -- arithmetic mode                      ; 2333                                            ;
+;                                             ;                                                 ;
+; Total registers                             ; 338                                             ;
+;     -- Dedicated logic registers            ; 338                                             ;
+;     -- I/O registers                        ; 0                                               ;
+;                                             ;                                                 ;
+; I/O pins                                    ; 31                                              ;
+;                                             ;                                                 ;
+; Embedded Multiplier 9-bit elements          ; 96                                              ;
+;                                             ;                                                 ;
+; Maximum fan-out node                        ; print:print_cuadrado|\contador_over:contador[2] ;
+; Maximum fan-out                             ; 323                                             ;
+; Total fan-out                               ; 20788                                           ;
+; Average fan-out                             ; 3.27                                            ;
++---------------------------------------------+-------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                 ;
-+------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+----------------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                 ; Entity Name          ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+----------------------+--------------+
-; |juego                             ; 2268 (0)            ; 205 (0)                   ; 0           ; 0          ; 96           ; 0       ; 48        ; 19   ; 0            ; 0          ; |juego                                                              ; juego                ; work         ;
-;    |divisor25:divisor|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|divisor25:divisor                                            ; divisor25            ; work         ;
-;    |print:print_cuadrado|          ; 2032 (1573)         ; 140 (131)                 ; 0           ; 0          ; 96           ; 0       ; 48        ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado                                         ; print                ; work         ;
-;       |lpm_mult:Mult0|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult0                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult0|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult10|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult10                         ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult10|mult_qgs:auto_generated ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult11|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult11                         ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult11|mult_qgs:auto_generated ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult12|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult12                         ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult12|mult_qgs:auto_generated ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult13|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult13                         ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult13|mult_qgs:auto_generated ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult14|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult14                         ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult14|mult_qgs:auto_generated ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult15|            ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult15                         ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult15|mult_qgs:auto_generated ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult1|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult1                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult1|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult2|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult2                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult2|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult3|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult3                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult3|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult4|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult4                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult4|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult5|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult5                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult5|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult6|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult6                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult6|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult7|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult7                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult7|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult8|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult8                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult8|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |lpm_mult:Mult9|             ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult9                          ; lpm_mult             ; work         ;
-;          |mult_qgs:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult9|mult_qgs:auto_generated  ; mult_qgs             ; work         ;
-;       |random:generar_random|      ; 11 (11)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|random:generar_random                   ; random               ; work         ;
-;    |video_sincronizacion:video|    ; 235 (235)           ; 64 (64)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|video_sincronizacion:video                                   ; video_sincronizacion ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------+----------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                         ; Entity Name          ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |juego                                    ; 5854 (0)            ; 338 (0)                   ; 0           ; 0          ; 96           ; 0       ; 48        ; 31   ; 0            ; 0          ; |juego                                                                                                                      ; juego                ; work         ;
+;    |divisor25:divisor|                    ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|divisor25:divisor                                                                                                    ; divisor25            ; work         ;
+;    |print:print_cuadrado|                 ; 5624 (4686)         ; 273 (247)                 ; 0           ; 0          ; 96           ; 0       ; 48        ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado                                                                                                 ; print                ; work         ;
+;       |divisorPrint:divisor_25|           ; 29 (29)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|divisorPrint:divisor_25                                                                         ; divisorPrint         ; work         ;
+;       |lpm_divide:Div0|                   ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_ktl:auto_generated|  ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div0|lpm_divide_ktl:auto_generated                                                   ; lpm_divide_ktl       ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div0|lpm_divide_ktl:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh  ; work         ;
+;                |alt_u_div_mhe:divider|    ; 82 (82)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div0|lpm_divide_ktl:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_mhe:divider ; alt_u_div_mhe        ; work         ;
+;       |lpm_divide:Div1|                   ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_ltl:auto_generated|  ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div1|lpm_divide_ltl:auto_generated                                                   ; lpm_divide_ltl       ; work         ;
+;             |sign_div_unsign_nlh:divider| ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div1|lpm_divide_ltl:auto_generated|sign_div_unsign_nlh:divider                       ; sign_div_unsign_nlh  ; work         ;
+;                |alt_u_div_ohe:divider|    ; 69 (69)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div1|lpm_divide_ltl:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_ohe:divider ; alt_u_div_ohe        ; work         ;
+;       |lpm_divide:Div2|                   ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div2                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_itl:auto_generated|  ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div2|lpm_divide_itl:auto_generated                                                   ; lpm_divide_itl       ; work         ;
+;             |sign_div_unsign_klh:divider| ; 82 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div2|lpm_divide_itl:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh  ; work         ;
+;                |alt_u_div_ihe:divider|    ; 82 (82)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Div2|lpm_divide_itl:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe        ; work         ;
+;       |lpm_divide:Mod0|                   ; 85 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod0                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_2nl:auto_generated|  ; 85 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod0|lpm_divide_2nl:auto_generated                                                   ; lpm_divide_2nl       ; work         ;
+;             |sign_div_unsign_1nh:divider| ; 85 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod0|lpm_divide_2nl:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh  ; work         ;
+;                |alt_u_div_cke:divider|    ; 85 (85)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod0|lpm_divide_2nl:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_cke:divider ; alt_u_div_cke        ; work         ;
+;       |lpm_divide:Mod1|                   ; 133 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;          |lpm_divide_2nl:auto_generated|  ; 133 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod1|lpm_divide_2nl:auto_generated                                                   ; lpm_divide_2nl       ; work         ;
+;             |sign_div_unsign_1nh:divider| ; 133 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod1|lpm_divide_2nl:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh  ; work         ;
+;                |alt_u_div_cke:divider|    ; 133 (133)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_divide:Mod1|lpm_divide_2nl:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_cke:divider ; alt_u_div_cke        ; work         ;
+;       |lpm_mult:Mult0|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult0                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult0|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult10|                   ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult10                                                                                 ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult10|mult_qgs:auto_generated                                                         ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult11|                   ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult11                                                                                 ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult11|mult_qgs:auto_generated                                                         ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult12|                   ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult12                                                                                 ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult12|mult_qgs:auto_generated                                                         ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult13|                   ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult13                                                                                 ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult13|mult_qgs:auto_generated                                                         ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult14|                   ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult14                                                                                 ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult14|mult_qgs:auto_generated                                                         ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult15|                   ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult15                                                                                 ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult15|mult_qgs:auto_generated                                                         ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult1|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult1                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult1|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult2|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult2                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult2|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult3|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult3                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult3|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult4|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult4                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult4|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult5|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult5                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult5|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult6|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult6                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult6|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult7|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult7                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult7|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult8|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult8                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult8|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |lpm_mult:Mult9|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult9                                                                                  ; lpm_mult             ; work         ;
+;          |mult_qgs:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 6            ; 0       ; 3         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|lpm_mult:Mult9|mult_qgs:auto_generated                                                          ; mult_qgs             ; work         ;
+;       |random:generar_random|             ; 10 (10)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|print:print_cuadrado|random:generar_random                                                                           ; random               ; work         ;
+;    |video_sincronizacion:video|           ; 229 (229)           ; 64 (64)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |juego|video_sincronizacion:video                                                                                           ; video_sincronizacion ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -302,96 +346,125 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                    ;
-+-----------------------------------------------------+-----------------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal                     ; Free of Timing Hazards ;
-+-----------------------------------------------------+-----------------------------------------+------------------------+
-; print:print_cuadrado|posX_asteroide0[0]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[1]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[2]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[3]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[4]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[5]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[6]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[7]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide0[8]             ; print:print_cuadrado|Equal3             ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[0]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[1]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[2]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[3]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[4]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[5]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[6]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[7]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide1[8]             ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[0]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[1]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[2]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[3]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[4]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[5]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[6]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[7]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide2[8]             ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[0]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[1]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[2]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[3]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[4]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[5]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[6]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[7]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide3[8]             ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[0]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[1]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[2]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[3]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[4]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[5]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[6]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[7]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide4[8]             ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[0]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[1]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[2]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[3]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[4]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[5]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[6]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[7]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide5[8]             ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[0]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[1]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[2]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[3]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[4]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[5]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[6]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[7]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide6[8]             ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[0]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[1]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[2]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[3]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[4]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[5]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[6]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[7]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; print:print_cuadrado|posX_asteroide7[8]             ; print:print_cuadrado|posX_asteroide7[3] ; yes                    ;
-; Number of user-specified and inferred latches = 72  ;                                         ;                        ;
-+-----------------------------------------------------+-----------------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                     ;
++------------------------------------------------------+-----------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                     ; Free of Timing Hazards ;
++------------------------------------------------------+-----------------------------------------+------------------------+
+; print:print_cuadrado|color_numero1[8]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|vidas[1]                        ; print:print_cuadrado|explota_nave       ; yes                    ;
+; print:print_cuadrado|vidas[0]                        ; print:print_cuadrado|explota_nave       ; yes                    ;
+; print:print_cuadrado|color_numero2[8]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[8]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[9]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[9]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[9]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[10]               ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[10]               ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[10]               ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[11]               ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[11]               ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[11]               ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[4]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[4]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[4]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[5]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[5]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[5]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[6]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[6]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[6]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[7]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[7]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[7]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[0]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[0]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[0]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[1]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[1]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[1]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[2]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[2]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[2]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|color_numero1[3]                ; print:print_cuadrado|color_numero1[0]   ; yes                    ;
+; print:print_cuadrado|color_numero2[3]                ; print:print_cuadrado|color_numero2[0]   ; yes                    ;
+; print:print_cuadrado|color_numero3[3]                ; print:print_cuadrado|color_numero3[10]  ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[0]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[1]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[2]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[3]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[4]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[5]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[6]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[7]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide0[8]              ; print:print_cuadrado|LessThan57         ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[0]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[1]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[2]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[3]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[4]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[5]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[6]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[7]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide1[8]              ; print:print_cuadrado|posX_asteroide1[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[0]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[1]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[2]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[3]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[4]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[5]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[6]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[7]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide2[8]              ; print:print_cuadrado|posX_asteroide2[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[0]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[1]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[2]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[3]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[4]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[5]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[6]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[7]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide3[8]              ; print:print_cuadrado|posX_asteroide3[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[0]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[1]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[2]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[3]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[4]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[5]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[6]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[7]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide4[8]              ; print:print_cuadrado|posX_asteroide4[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[0]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[1]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[2]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[3]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[4]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[5]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[6]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[7]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide5[8]              ; print:print_cuadrado|posX_asteroide5[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[0]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[1]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[2]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[3]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[4]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[5]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[6]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; print:print_cuadrado|posX_asteroide6[7]              ; print:print_cuadrado|posX_asteroide6[0] ; yes                    ;
+; Number of user-specified and inferred latches = 110  ;                                         ;                        ;
++------------------------------------------------------+-----------------------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                 ;
-+-------------------------------------------+----------------------------------------+
-; Register name                             ; Reason for Removal                     ;
-+-------------------------------------------+----------------------------------------+
-; print:print_cuadrado|\divisor25:cuenta[0] ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1     ;                                        ;
-+-------------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                         ;
++-------------------------------------------------------------------+----------------------------------------+
+; Register name                                                     ; Reason for Removal                     ;
++-------------------------------------------------------------------+----------------------------------------+
+; print:print_cuadrado|explota_asteroide7                           ; Stuck at GND due to stuck port data_in ;
+; print:print_cuadrado|divisorPrint:divisor_25|\divisor25:cuenta[0] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 2                             ;                                        ;
++-------------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -399,49 +472,149 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 205   ;
-; Number of registers using Synchronous Clear  ; 70    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 338   ;
+; Number of registers using Synchronous Clear  ; 18    ;
+; Number of registers using Synchronous Load   ; 13    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Clock Enable       ; 174   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------+
-; Inverted Register Statistics                               ;
-+--------------------------------------------------+---------+
-; Inverted Register                                ; Fan out ;
-+--------------------------------------------------+---------+
-; print:print_cuadrado|\contador_nave:contador[0]  ; 110     ;
-; print:print_cuadrado|\contador_nave:contador[1]  ; 108     ;
-; print:print_cuadrado|\contador_nave:contador[2]  ; 112     ;
-; print:print_cuadrado|\contador_nave:contador[6]  ; 77      ;
-; print:print_cuadrado|\contador_nave:contador[5]  ; 99      ;
-; print:print_cuadrado|\contador_nave:contador[3]  ; 105     ;
-; print:print_cuadrado|\contador_nave:contador[7]  ; 43      ;
-; print:print_cuadrado|\contador_nave:contador[4]  ; 55      ;
-; print:print_cuadrado|\contador_nave:contador[9]  ; 14      ;
-; print:print_cuadrado|\contador_nave:contador[8]  ; 16      ;
-; print:print_cuadrado|despX[8]                    ; 6       ;
-; print:print_cuadrado|despX[5]                    ; 7       ;
-; print:print_cuadrado|despX[0]                    ; 7       ;
-; print:print_cuadrado|despX[4]                    ; 6       ;
-; print:print_cuadrado|\contador_nave:contador[10] ; 1       ;
-; print:print_cuadrado|random:generar_random|Qt[0] ; 9       ;
-; Total number of inverted registers = 16          ;         ;
-+--------------------------------------------------+---------+
++--------------------------------------------------------------+
+; Inverted Register Statistics                                 ;
++----------------------------------------------------+---------+
+; Inverted Register                                  ; Fan out ;
++----------------------------------------------------+---------+
+; print:print_cuadrado|\contador_cora2:contador[9]   ; 14      ;
+; print:print_cuadrado|\contador_cora2:contador[4]   ; 20      ;
+; print:print_cuadrado|\contador_cora2:contador[8]   ; 27      ;
+; print:print_cuadrado|\contador_cora2:contador[6]   ; 30      ;
+; print:print_cuadrado|\contador_cora2:contador[3]   ; 30      ;
+; print:print_cuadrado|\contador_cora2:contador[2]   ; 42      ;
+; print:print_cuadrado|\contador_cora2:contador[1]   ; 32      ;
+; print:print_cuadrado|\contador_cora2:contador[0]   ; 29      ;
+; print:print_cuadrado|\contador_cora2:contador[7]   ; 29      ;
+; print:print_cuadrado|\contador_cora2:contador[5]   ; 8       ;
+; print:print_cuadrado|\contador_cora3:contador[3]   ; 33      ;
+; print:print_cuadrado|\contador_cora3:contador[2]   ; 42      ;
+; print:print_cuadrado|\contador_cora3:contador[6]   ; 30      ;
+; print:print_cuadrado|\contador_cora3:contador[1]   ; 33      ;
+; print:print_cuadrado|\contador_cora3:contador[0]   ; 29      ;
+; print:print_cuadrado|\contador_cora3:contador[7]   ; 29      ;
+; print:print_cuadrado|\contador_cora3:contador[8]   ; 28      ;
+; print:print_cuadrado|\contador_cora3:contador[9]   ; 15      ;
+; print:print_cuadrado|\contador_cora3:contador[4]   ; 21      ;
+; print:print_cuadrado|\contador_cora3:contador[5]   ; 4       ;
+; print:print_cuadrado|\contador_over:contador[0]    ; 227     ;
+; print:print_cuadrado|\contador_over:contador[1]    ; 283     ;
+; print:print_cuadrado|\contador_over:contador[8]    ; 123     ;
+; print:print_cuadrado|\contador_over:contador[3]    ; 225     ;
+; print:print_cuadrado|\contador_over:contador[2]    ; 323     ;
+; print:print_cuadrado|\contador_over:contador[6]    ; 181     ;
+; print:print_cuadrado|\contador_over:contador[7]    ; 162     ;
+; print:print_cuadrado|\contador_over:contador[5]    ; 209     ;
+; print:print_cuadrado|\contador_over:contador[9]    ; 9       ;
+; print:print_cuadrado|\contador_over:contador[4]    ; 154     ;
+; print:print_cuadrado|\contador_over:contador[10]   ; 7       ;
+; print:print_cuadrado|\contador_over:contador[12]   ; 3       ;
+; print:print_cuadrado|\contador_over:contador[11]   ; 70      ;
+; print:print_cuadrado|\contador_cora1:contador[2]   ; 43      ;
+; print:print_cuadrado|\contador_cora1:contador[1]   ; 32      ;
+; print:print_cuadrado|\contador_cora1:contador[3]   ; 33      ;
+; print:print_cuadrado|\contador_cora1:contador[9]   ; 15      ;
+; print:print_cuadrado|\contador_cora1:contador[6]   ; 30      ;
+; print:print_cuadrado|\contador_cora1:contador[0]   ; 29      ;
+; print:print_cuadrado|\contador_cora1:contador[7]   ; 30      ;
+; print:print_cuadrado|\contador_cora1:contador[8]   ; 27      ;
+; print:print_cuadrado|\contador_cora1:contador[4]   ; 23      ;
+; print:print_cuadrado|\contador_cora1:contador[5]   ; 6       ;
+; print:print_cuadrado|recarga                       ; 16      ;
+; print:print_cuadrado|desp_disparo[8]               ; 12      ;
+; print:print_cuadrado|desp_disparo[7]               ; 12      ;
+; print:print_cuadrado|desp_disparo[6]               ; 12      ;
+; print:print_cuadrado|desp_disparo[4]               ; 12      ;
+; print:print_cuadrado|desp_disparo[2]               ; 12      ;
+; print:print_cuadrado|desp_disparo[1]               ; 12      ;
+; print:print_cuadrado|\contador_nave:contador[0]    ; 111     ;
+; print:print_cuadrado|\contador_nave:contador[1]    ; 107     ;
+; print:print_cuadrado|\contador_nave:contador[2]    ; 110     ;
+; print:print_cuadrado|\contador_nave:contador[6]    ; 76      ;
+; print:print_cuadrado|\contador_nave:contador[5]    ; 97      ;
+; print:print_cuadrado|\contador_nave:contador[3]    ; 107     ;
+; print:print_cuadrado|\contador_nave:contador[7]    ; 43      ;
+; print:print_cuadrado|\contador_nave:contador[4]    ; 54      ;
+; print:print_cuadrado|\contador_nave:contador[9]    ; 14      ;
+; print:print_cuadrado|\contador_nave:contador[8]    ; 16      ;
+; print:print_cuadrado|despX[8]                      ; 23      ;
+; print:print_cuadrado|despX[5]                      ; 23      ;
+; print:print_cuadrado|despX[4]                      ; 23      ;
+; print:print_cuadrado|despX[0]                      ; 24      ;
+; print:print_cuadrado|despY[8]                      ; 7       ;
+; print:print_cuadrado|despY[7]                      ; 7       ;
+; print:print_cuadrado|despY[6]                      ; 7       ;
+; print:print_cuadrado|despY[0]                      ; 8       ;
+; print:print_cuadrado|\contador_numero1:contador[6] ; 36      ;
+; print:print_cuadrado|\contador_numero1:contador[5] ; 76      ;
+; print:print_cuadrado|\contador_numero1:contador[7] ; 39      ;
+; print:print_cuadrado|\contador_numero1:contador[8] ; 38      ;
+; print:print_cuadrado|\contador_numero1:contador[9] ; 13      ;
+; print:print_cuadrado|\contador_numero1:contador[1] ; 61      ;
+; print:print_cuadrado|\contador_numero1:contador[2] ; 88      ;
+; print:print_cuadrado|\contador_numero1:contador[3] ; 80      ;
+; print:print_cuadrado|\contador_numero1:contador[4] ; 77      ;
+; print:print_cuadrado|\contador_cora2:contador[10]  ; 1       ;
+; print:print_cuadrado|\contador_cora3:contador[10]  ; 1       ;
+; print:print_cuadrado|\contador_over:contador[13]   ; 1       ;
+; print:print_cuadrado|\contador_over:contador[14]   ; 1       ;
+; print:print_cuadrado|\contador_cora1:contador[10]  ; 1       ;
+; print:print_cuadrado|\contador_numero2:contador[9] ; 6       ;
+; print:print_cuadrado|\contador_numero2:contador[1] ; 57      ;
+; print:print_cuadrado|\contador_numero2:contador[2] ; 88      ;
+; print:print_cuadrado|\contador_numero2:contador[3] ; 81      ;
+; print:print_cuadrado|\contador_numero2:contador[5] ; 81      ;
+; print:print_cuadrado|\contador_numero2:contador[6] ; 32      ;
+; print:print_cuadrado|\contador_numero2:contador[4] ; 75      ;
+; print:print_cuadrado|\contador_numero2:contador[8] ; 39      ;
+; print:print_cuadrado|\contador_numero2:contador[7] ; 34      ;
+; print:print_cuadrado|\contador_numero3:contador[5] ; 74      ;
+; print:print_cuadrado|\contador_numero3:contador[6] ; 33      ;
+; print:print_cuadrado|\contador_numero3:contador[8] ; 38      ;
+; print:print_cuadrado|\contador_numero3:contador[7] ; 39      ;
+; print:print_cuadrado|\contador_numero3:contador[9] ; 9       ;
+; print:print_cuadrado|\contador_numero3:contador[1] ; 63      ;
+; print:print_cuadrado|\contador_numero3:contador[2] ; 87      ;
+; print:print_cuadrado|\contador_numero3:contador[3] ; 79      ;
+; print:print_cuadrado|\contador_numero3:contador[4] ; 76      ;
+; Total number of inverted registers = 108*          ;         ;
++----------------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |juego|print:print_cuadrado|despX[10] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |juego|print:print_cuadrado|despX[8]  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_disparo[0]    ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide7[6] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |juego|print:print_cuadrado|destruidos[9]      ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide0[8] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide1[8] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide2[1] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide3[7] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide4[5] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide5[1] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_asteroide6[1] ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |juego|print:print_cuadrado|despX[1]           ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |juego|print:print_cuadrado|despY[1]           ;
+; 1735:1             ; 6 bits    ; 6936 LEs      ; 2784 LEs             ; 4152 LEs               ; Yes        ; |juego|print:print_cuadrado|vga_color[7]       ;
+; 1735:1             ; 6 bits    ; 6936 LEs      ; 2784 LEs             ; 4152 LEs               ; Yes        ; |juego|print:print_cuadrado|vga_color[4]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |juego|print:print_cuadrado|desp_disparo[6]    ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |juego|print:print_cuadrado|despX[0]           ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |juego|print:print_cuadrado|despY[0]           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------+
@@ -1004,6 +1177,121 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Div1 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                     ;
+; LPM_WIDTHD             ; 7              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_ltl ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                     ;
+; LPM_WIDTHD             ; 10             ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_2nl ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Div2 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                     ;
+; LPM_WIDTHD             ; 4              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_itl ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                     ;
+; LPM_WIDTHD             ; 10             ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_2nl ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: print:print_cuadrado|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                     ;
+; LPM_WIDTHD             ; 6              ; Untyped                                     ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                     ;
+; LPM_PIPELINE           ; 0              ; Untyped                                     ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                     ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                     ;
+; CBXI_PARAMETER         ; lpm_divide_ktl ; Untyped                                     ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                     ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------+
 ; lpm_mult Parameter Settings by Entity Instance                               ;
 +---------------------------------------+--------------------------------------+
@@ -1194,25 +1482,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 205                         ;
-;     ENA               ; 64                          ;
-;     SCLR              ; 70                          ;
-;     plain             ; 71                          ;
-; cycloneiii_lcell_comb ; 2270                        ;
-;     arith             ; 1409                        ;
-;         2 data inputs ; 415                         ;
-;         3 data inputs ; 994                         ;
-;     normal            ; 861                         ;
-;         1 data inputs ; 32                          ;
-;         2 data inputs ; 120                         ;
-;         3 data inputs ; 132                         ;
-;         4 data inputs ; 577                         ;
+; boundary_port         ; 31                          ;
+; cycloneiii_ff         ; 338                         ;
+;     ENA               ; 161                         ;
+;     ENA SCLR          ; 10                          ;
+;     ENA SLD           ; 3                           ;
+;     SCLR              ; 8                           ;
+;     SLD               ; 10                          ;
+;     plain             ; 146                         ;
+; cycloneiii_lcell_comb ; 5857                        ;
+;     arith             ; 2333                        ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 731                         ;
+;         3 data inputs ; 1594                        ;
+;     normal            ; 3524                        ;
+;         0 data inputs ; 45                          ;
+;         1 data inputs ; 116                         ;
+;         2 data inputs ; 370                         ;
+;         3 data inputs ; 595                         ;
+;         4 data inputs ; 2398                        ;
 ; cycloneiii_mac_mult   ; 48                          ;
 ; cycloneiii_mac_out    ; 48                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 14.00                       ;
-; Average LUT depth     ; 6.10                        ;
+; Max LUT depth         ; 34.30                       ;
+; Average LUT depth     ; 9.49                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1221,7 +1514,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:34     ;
+; Top            ; 00:00:37     ;
 +----------------+--------------+
 
 
@@ -1231,18 +1524,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Oct 26 01:29:07 2018
+    Info: Processing started: Mon Nov 12 17:38:39 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off videogame -c juego
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file juego.vhd
-    Info (12022): Found design unit 1: juego-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 13
+    Info (12022): Found design unit 1: juego-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 16
     Info (12023): Found entity 1: juego File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file video_sincronizacion.vhd
     Info (12022): Found design unit 1: video_sincronizacion-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd Line: 13
     Info (12023): Found entity 1: video_sincronizacion File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/video_sincronizacion.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file print.vhd
-    Info (12022): Found design unit 1: print-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 15
+    Info (12022): Found design unit 1: print-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 17
     Info (12023): Found entity 1: print File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file divisor25.vhd
     Info (12022): Found design unit 1: divisor25-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisor25.vhd Line: 12
@@ -1250,126 +1543,201 @@ Info (12021): Found 2 design units, including 1 entities, in source file divisor
 Info (12021): Found 2 design units, including 1 entities, in source file random.vhd
     Info (12022): Found design unit 1: random-Behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/random.vhd Line: 19
     Info (12023): Found entity 1: random File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/random.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file divisorprint.vhd
+    Info (12022): Found design unit 1: divisorPrint-behavioral File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisorPrint.vhd Line: 11
+    Info (12023): Found entity 1: divisorPrint File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/divisorPrint.vhd Line: 4
 Info (12127): Elaborating entity "juego" for the top level hierarchy
-Info (12128): Elaborating entity "divisor25" for hierarchy "divisor25:divisor" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 51
-Info (12128): Elaborating entity "video_sincronizacion" for hierarchy "video_sincronizacion:video" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 53
-Info (12128): Elaborating entity "print" for hierarchy "print:print_cuadrado" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 55
-Warning (10492): VHDL Process Statement warning at print.vhd(197): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 197
-Warning (10492): VHDL Process Statement warning at print.vhd(201): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 201
-Warning (10492): VHDL Process Statement warning at print.vhd(205): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 205
-Warning (10492): VHDL Process Statement warning at print.vhd(209): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 209
-Warning (10492): VHDL Process Statement warning at print.vhd(213): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 213
-Warning (10492): VHDL Process Statement warning at print.vhd(217): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 217
-Warning (10492): VHDL Process Statement warning at print.vhd(221): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 221
-Warning (10492): VHDL Process Statement warning at print.vhd(225): signal "numero_random" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 225
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide0", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide1", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide2", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide3", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide4", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide5", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide6", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Warning (10631): VHDL Process Statement warning at print.vhd(189): inferring latch(es) for signal or variable "posX_asteroide7", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide7[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide6[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide5[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide4[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide3[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide2[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide1[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[0]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[1]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[2]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[3]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[4]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[5]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[6]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[7]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[8]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (10041): Inferred latch for "posX_asteroide0[9]" at print.vhd(189) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 189
-Info (12128): Elaborating entity "random" for hierarchy "print:print_cuadrado|random:generar_random" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 133
-Info (278001): Inferred 16 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult0" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult3" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 344
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult2" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 344
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult5" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 345
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult4" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 345
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 346
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult6" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 346
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult9" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 347
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 347
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult11" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 348
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult10" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 348
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult13" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 349
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult12" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 349
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult15" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 350
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult14" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 350
-Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_mult:Mult1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
-Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_mult:Mult1" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 343
+Warning (10873): Using initial value X (don't care) for net "leds[9..6]" at juego.vhd(12) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 12
+Info (12128): Elaborating entity "divisor25" for hierarchy "divisor25:divisor" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 56
+Info (12128): Elaborating entity "video_sincronizacion" for hierarchy "video_sincronizacion:video" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 58
+Info (12128): Elaborating entity "print" for hierarchy "print:print_cuadrado" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 60
+Warning (10492): VHDL Process Statement warning at print.vhd(648): signal "vidas" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 648
+Warning (10631): VHDL Process Statement warning at print.vhd(645): inferring latch(es) for signal or variable "vidas", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 645
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide0", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide1", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide2", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide3", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide4", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide5", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide6", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10631): VHDL Process Statement warning at print.vhd(864): inferring latch(es) for signal or variable "posX_asteroide7", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Warning (10492): VHDL Process Statement warning at print.vhd(1048): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1048
+Warning (10492): VHDL Process Statement warning at print.vhd(1050): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1050
+Warning (10492): VHDL Process Statement warning at print.vhd(1052): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1052
+Warning (10492): VHDL Process Statement warning at print.vhd(1054): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1054
+Warning (10492): VHDL Process Statement warning at print.vhd(1056): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1056
+Warning (10492): VHDL Process Statement warning at print.vhd(1058): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1058
+Warning (10492): VHDL Process Statement warning at print.vhd(1060): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1060
+Warning (10492): VHDL Process Statement warning at print.vhd(1062): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1062
+Warning (10492): VHDL Process Statement warning at print.vhd(1064): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1064
+Warning (10492): VHDL Process Statement warning at print.vhd(1066): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1066
+Warning (10631): VHDL Process Statement warning at print.vhd(1036): inferring latch(es) for signal or variable "color_numero1", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Warning (10492): VHDL Process Statement warning at print.vhd(1084): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1084
+Warning (10492): VHDL Process Statement warning at print.vhd(1086): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1086
+Warning (10492): VHDL Process Statement warning at print.vhd(1088): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1088
+Warning (10492): VHDL Process Statement warning at print.vhd(1090): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1090
+Warning (10492): VHDL Process Statement warning at print.vhd(1092): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1092
+Warning (10492): VHDL Process Statement warning at print.vhd(1094): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1094
+Warning (10492): VHDL Process Statement warning at print.vhd(1096): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1096
+Warning (10492): VHDL Process Statement warning at print.vhd(1098): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1098
+Warning (10492): VHDL Process Statement warning at print.vhd(1100): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1100
+Warning (10492): VHDL Process Statement warning at print.vhd(1102): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1102
+Warning (10631): VHDL Process Statement warning at print.vhd(1072): inferring latch(es) for signal or variable "color_numero2", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Warning (10492): VHDL Process Statement warning at print.vhd(1121): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1121
+Warning (10492): VHDL Process Statement warning at print.vhd(1123): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1123
+Warning (10492): VHDL Process Statement warning at print.vhd(1125): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1125
+Warning (10492): VHDL Process Statement warning at print.vhd(1127): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1127
+Warning (10492): VHDL Process Statement warning at print.vhd(1129): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1129
+Warning (10492): VHDL Process Statement warning at print.vhd(1131): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1131
+Warning (10492): VHDL Process Statement warning at print.vhd(1133): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1133
+Warning (10492): VHDL Process Statement warning at print.vhd(1135): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1135
+Warning (10492): VHDL Process Statement warning at print.vhd(1137): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1137
+Warning (10492): VHDL Process Statement warning at print.vhd(1139): signal "destruidos" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1139
+Warning (10631): VHDL Process Statement warning at print.vhd(1109): inferring latch(es) for signal or variable "color_numero3", which holds its previous value in one or more paths through the process File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[0]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[1]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[2]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[3]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[4]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[5]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[6]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[7]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[8]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[9]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[10]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero3[11]" at print.vhd(1109) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Info (10041): Inferred latch for "color_numero2[0]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[1]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[2]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[3]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[4]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[5]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[6]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[7]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[8]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[9]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[10]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero2[11]" at print.vhd(1072) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+Info (10041): Inferred latch for "color_numero1[0]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[1]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[2]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[3]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[4]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[5]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[6]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[7]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[8]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[9]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[10]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "color_numero1[11]" at print.vhd(1036) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+Info (10041): Inferred latch for "posX_asteroide7[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide7[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide6[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide5[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide4[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide3[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide2[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide1[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[0]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[1]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[2]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[3]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[4]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[5]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[6]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[7]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[8]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "posX_asteroide0[9]" at print.vhd(864) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 864
+Info (10041): Inferred latch for "vidas[0]" at print.vhd(645) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 645
+Info (10041): Inferred latch for "vidas[1]" at print.vhd(645) File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 645
+Info (12128): Elaborating entity "random" for hierarchy "print:print_cuadrado|random:generar_random" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 615
+Info (12128): Elaborating entity "divisorPrint" for hierarchy "print:print_cuadrado|divisorPrint:divisor_25" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 618
+Info (278001): Inferred 21 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1240
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult0" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1240
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult3" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1241
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult2" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1241
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult5" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1242
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult4" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1242
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1243
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult6" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1243
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult9" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1244
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1244
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult11" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1245
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult10" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1245
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult13" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1246
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult12" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1246
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult15" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1247
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "print:print_cuadrado|Mult14" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1247
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "print:print_cuadrado|Div1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1064
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "print:print_cuadrado|Mod0" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1100
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "print:print_cuadrado|Div2" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1100
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "print:print_cuadrado|Mod1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1137
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "print:print_cuadrado|Div0" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 988
+Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_mult:Mult1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1240
+Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_mult:Mult1" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1240
     Info (12134): Parameter "LPM_WIDTHA" = "32"
     Info (12134): Parameter "LPM_WIDTHB" = "32"
     Info (12134): Parameter "LPM_WIDTHP" = "64"
@@ -1381,6 +1749,64 @@ Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_mult:Mult1" wi
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_qgs.tdf
     Info (12023): Found entity 1: mult_qgs File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_divide:Div1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1064
+Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_divide:Div1" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1064
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ltl.tdf
+    Info (12023): Found entity 1: lpm_divide_ltl File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_ltl.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_nlh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ohe.tdf
+    Info (12023): Found entity 1: alt_u_div_ohe File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_ohe.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/add_sub_t3c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/add_sub_u3c.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_divide:Mod0" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1100
+Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_divide:Mod0" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1100
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_2nl.tdf
+    Info (12023): Found entity 1: lpm_divide_2nl File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_2nl.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_1nh File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_1nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_cke.tdf
+    Info (12023): Found entity 1: alt_u_div_cke File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_cke.tdf Line: 26
+Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_divide:Div2" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1100
+Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_divide:Div2" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1100
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_itl.tdf
+    Info (12023): Found entity 1: lpm_divide_itl File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_itl.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_klh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ihe.tdf
+    Info (12023): Found entity 1: alt_u_div_ihe File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_ihe.tdf Line: 26
+Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_divide:Mod1" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1137
+Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_divide:Mod1" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1137
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "print:print_cuadrado|lpm_divide:Div0" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 988
+Info (12133): Instantiated megafunction "print:print_cuadrado|lpm_divide:Div0" with the following parameter: File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 988
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ktl.tdf
+    Info (12023): Found entity 1: lpm_divide_ktl File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/lpm_divide_ktl.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_mlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_mlh File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/sign_div_unsign_mlh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mhe.tdf
+    Info (12023): Found entity 1: alt_u_div_mhe File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/alt_u_div_mhe.tdf Line: 26
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following DSP element node(s):
         Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult14|mult_qgs:auto_generated|mac_mult7" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 66
@@ -1417,21 +1843,63 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "print:print_cuadrado|lpm_mult:Mult1|mult_qgs:auto_generated|mac_out8" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/db/mult_qgs.tdf Line: 90
 Info (13014): Ignored 1344 buffer(s)
     Info (13019): Ignored 1344 SOFT buffer(s)
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[0]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[1]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[2]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[3]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[4]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[5]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[6]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[7]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[9]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[10]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero1[11]" merged with LATCH primitive "print:print_cuadrado|color_numero1[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[0]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[1]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[2]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[3]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[4]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[5]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[6]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[7]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[9]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[10]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero2[11]" merged with LATCH primitive "print:print_cuadrado|color_numero2[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[10]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[9]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[7]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[6]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[5]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[4]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[3]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[2]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[1]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[0]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Info (13026): Duplicate LATCH primitive "print:print_cuadrado|color_numero3[11]" merged with LATCH primitive "print:print_cuadrado|color_numero3[8]" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+Warning (13012): Latch print:print_cuadrado|color_numero1[8] has unsafe behavior File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1036
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal print:print_cuadrado|Equal14~synth File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1048
+Warning (13012): Latch print:print_cuadrado|color_numero2[8] has unsafe behavior File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1072
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal print:print_cuadrado|Equal25~synth File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1084
+Warning (13012): Latch print:print_cuadrado|color_numero3[8] has unsafe behavior File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 1109
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal print:print_cuadrado|destruidos[0] File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 788
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "leds[6]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 12
+    Warning (13410): Pin "leds[7]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 12
+    Warning (13410): Pin "leds[8]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 12
+    Warning (13410): Pin "leds[9]" is stuck at GND File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 12
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Ubtn" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 7
-    Warning (15610): No output dependent on input pin "Dbtn" File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/juego.vhd Line: 7
-Info (21057): Implemented 2392 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 2277 logic cells
+Info (21057): Implemented 5987 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 5860 logic cells
     Info (21062): Implemented 96 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
-    Info: Peak virtual memory: 4859 megabytes
-    Info: Processing ended: Fri Oct 26 01:30:33 2018
-    Info: Elapsed time: 00:01:26
-    Info: Total CPU time (on all processors): 00:01:48
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 90 warnings
+    Info: Peak virtual memory: 4880 megabytes
+    Info: Processing ended: Mon Nov 12 17:39:36 2018
+    Info: Elapsed time: 00:00:57
+    Info: Total CPU time (on all processors): 00:01:18
 
 
