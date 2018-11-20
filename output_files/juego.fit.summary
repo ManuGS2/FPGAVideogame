@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Nov 12 17:45:13 2018
+Fitter Status : Successful - Tue Nov 20 14:40:05 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : juego
 Top-level Entity Name : juego
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 5,860 / 49,760 ( 12 % )
-    Total combinational functions : 5,855 / 49,760 ( 12 % )
-    Dedicated logic registers : 338 / 49,760 ( < 1 % )
-Total registers : 338
+Total logic elements : 5,735 / 49,760 ( 12 % )
+    Total combinational functions : 5,726 / 49,760 ( 12 % )
+    Dedicated logic registers : 342 / 49,760 ( < 1 % )
+Total registers : 342
 Total pins : 31 / 360 ( 9 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

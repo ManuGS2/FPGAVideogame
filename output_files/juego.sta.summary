@@ -3,76 +3,76 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|destruidos[2]'
-Slack : -53.723
-TNS   : -93.112
+Slack : -45.055
+TNS   : -81.972
 
 Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|destruidos[3]'
-Slack : -53.238
-TNS   : -108.655
+Slack : -44.419
+TNS   : -96.871
+
+Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|destruidos[0]'
+Slack : -38.278
+TNS   : -38.278
 
 Type  : Slow 1200mV 85C Model Setup 'divisor25:divisor|\reloj:clock'
-Slack : -28.040
-TNS   : -2025.462
+Slack : -25.947
+TNS   : -2070.571
 
 Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|divisorPrint:divisor_25|clk'
-Slack : -18.822
-TNS   : -1656.082
-
-Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|explota_nave'
-Slack : -4.612
-TNS   : -4.612
+Slack : -15.422
+TNS   : -901.126
 
 Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : -2.873
-TNS   : -143.839
+Slack : -1.957
+TNS   : -68.399
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -0.805
-TNS   : -0.805
+Slack : -0.868
+TNS   : -0.868
+
+Type  : Slow 1200mV 85C Model Setup 'print:print_cuadrado|explota_nave'
+Slack : 0.089
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'print:print_cuadrado|destruidos[3]'
-Slack : -4.679
-TNS   : -5.665
+Slack : -18.495
+TNS   : -30.040
 
 Type  : Slow 1200mV 85C Model Hold 'print:print_cuadrado|destruidos[2]'
-Slack : -1.433
-TNS   : -1.433
+Slack : -15.857
+TNS   : -24.222
 
 Type  : Slow 1200mV 85C Model Hold 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : -0.033
-TNS   : -0.038
+Slack : -3.095
+TNS   : -44.323
 
 Type  : Slow 1200mV 85C Model Hold 'print:print_cuadrado|divisorPrint:divisor_25|clk'
-Slack : 0.341
-TNS   : 0.000
+Slack : -0.663
+TNS   : -1.345
+
+Type  : Slow 1200mV 85C Model Hold 'print:print_cuadrado|destruidos[0]'
+Slack : -0.642
+TNS   : -0.642
 
 Type  : Slow 1200mV 85C Model Hold 'divisor25:divisor|\reloj:clock'
-Slack : 0.342
-TNS   : 0.000
+Slack : -0.136
+TNS   : -0.136
 
 Type  : Slow 1200mV 85C Model Hold 'print:print_cuadrado|explota_nave'
-Slack : 0.682
+Slack : 0.344
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.713
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Recovery 'print:print_cuadrado|explota_nave'
-Slack : -3.645
-TNS   : -3.645
-
-Type  : Slow 1200mV 85C Model Removal 'print:print_cuadrado|explota_nave'
-Slack : 3.122
+Slack : 0.663
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[3]'
-Slack : -18.566
-TNS   : -14197.460
+Slack : -18.057
+TNS   : -13313.070
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[2]'
-Slack : -16.090
-TNS   : -7667.510
+Slack : -16.055
+TNS   : -7507.942
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
@@ -80,91 +80,95 @@ TNS   : -4.403
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divisor25:divisor|\reloj:clock'
 Slack : -1.403
-TNS   : -274.988
+TNS   : -277.794
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|divisorPrint:divisor_25|clk'
 Slack : -1.403
 TNS   : -197.823
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : 0.291
-TNS   : 0.000
-
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|explota_nave'
-Slack : 0.448
+Slack : -1.403
+TNS   : -2.806
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[0]'
+Slack : -0.254
+TNS   : -1.244
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'print:print_cuadrado|desp_asteroide0[0]'
+Slack : 0.417
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|destruidos[2]'
-Slack : -49.347
-TNS   : -85.805
+Slack : -41.327
+TNS   : -75.272
 
 Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|destruidos[3]'
-Slack : -48.889
-TNS   : -99.767
+Slack : -40.745
+TNS   : -88.665
+
+Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|destruidos[0]'
+Slack : -35.177
+TNS   : -35.177
 
 Type  : Slow 1200mV 0C Model Setup 'divisor25:divisor|\reloj:clock'
-Slack : -25.420
-TNS   : -1849.321
+Slack : -23.858
+TNS   : -1899.502
 
 Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|divisorPrint:divisor_25|clk'
-Slack : -16.893
-TNS   : -1495.709
-
-Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|explota_nave'
-Slack : -4.174
-TNS   : -4.174
+Slack : -13.917
+TNS   : -815.176
 
 Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : -2.870
-TNS   : -140.631
+Slack : -1.926
+TNS   : -66.981
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -0.689
-TNS   : -0.689
+Slack : -0.677
+TNS   : -0.677
 
-Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[3]'
-Slack : -4.476
-TNS   : -5.473
-
-Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[2]'
-Slack : -1.555
-TNS   : -1.555
-
-Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : -0.063
-TNS   : -0.068
-
-Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|divisorPrint:divisor_25|clk'
-Slack : 0.306
+Type  : Slow 1200mV 0C Model Setup 'print:print_cuadrado|explota_nave'
+Slack : 0.166
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[3]'
+Slack : -16.776
+TNS   : -27.260
+
+Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[2]'
+Slack : -14.372
+TNS   : -21.958
+
+Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|desp_asteroide0[0]'
+Slack : -2.762
+TNS   : -38.890
+
+Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[0]'
+Slack : -0.599
+TNS   : -0.599
+
+Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|divisorPrint:divisor_25|clk'
+Slack : -0.537
+TNS   : -1.386
+
 Type  : Slow 1200mV 0C Model Hold 'divisor25:divisor|\reloj:clock'
-Slack : 0.307
+Slack : -0.075
+TNS   : -0.075
+
+Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|explota_nave'
+Slack : 0.309
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.603
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'print:print_cuadrado|explota_nave'
-Slack : 0.636
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'print:print_cuadrado|explota_nave'
-Slack : -3.295
-TNS   : -3.295
-
-Type  : Slow 1200mV 0C Model Removal 'print:print_cuadrado|explota_nave'
-Slack : 2.894
+Slack : 0.518
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[3]'
-Slack : -16.902
-TNS   : -12794.300
+Slack : -16.385
+TNS   : -11953.071
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[2]'
-Slack : -14.614
-TNS   : -6903.047
+Slack : -14.563
+TNS   : -6745.384
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
@@ -172,110 +176,118 @@ TNS   : -4.403
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divisor25:divisor|\reloj:clock'
 Slack : -1.403
-TNS   : -274.988
+TNS   : -277.794
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|divisorPrint:divisor_25|clk'
 Slack : -1.403
 TNS   : -197.823
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : -0.081
-TNS   : -1.242
-
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|explota_nave'
-Slack : 0.483
+Slack : -1.403
+TNS   : -2.806
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[0]'
+Slack : -0.231
+TNS   : -0.940
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|desp_asteroide0[0]'
+Slack : 0.246
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|destruidos[2]'
-Slack : -22.892
-TNS   : -39.775
+Slack : -19.158
+TNS   : -35.095
 
 Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|destruidos[3]'
-Slack : -22.726
-TNS   : -45.460
+Slack : -18.908
+TNS   : -40.491
+
+Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|destruidos[0]'
+Slack : -16.495
+TNS   : -16.495
 
 Type  : Fast 1200mV 0C Model Setup 'divisor25:divisor|\reloj:clock'
-Slack : -11.661
-TNS   : -820.062
+Slack : -10.837
+TNS   : -852.773
 
 Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|divisorPrint:divisor_25|clk'
-Slack : -7.796
-TNS   : -600.270
-
-Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|explota_nave'
-Slack : -1.832
-TNS   : -1.832
+Slack : -6.168
+TNS   : -321.683
 
 Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : -1.115
-TNS   : -46.676
+Slack : -0.487
+TNS   : -12.486
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -0.133
-TNS   : -0.133
+Slack : -0.285
+TNS   : -0.285
+
+Type  : Fast 1200mV 0C Model Setup 'print:print_cuadrado|explota_nave'
+Slack : 0.611
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[3]'
-Slack : -1.008
-TNS   : -1.262
-
-Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : -0.088
-TNS   : -0.122
-
-Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|divisorPrint:divisor_25|clk'
-Slack : 0.148
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'divisor25:divisor|\reloj:clock'
-Slack : 0.149
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|explota_nave'
-Slack : 0.244
-TNS   : 0.000
+Slack : -7.470
+TNS   : -12.300
 
 Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[2]'
-Slack : 0.323
+Slack : -6.403
+TNS   : -9.956
+
+Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|desp_asteroide0[0]'
+Slack : -1.437
+TNS   : -21.965
+
+Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|divisorPrint:divisor_25|clk'
+Slack : -0.498
+TNS   : -1.258
+
+Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|destruidos[0]'
+Slack : -0.270
+TNS   : -0.270
+
+Type  : Fast 1200mV 0C Model Hold 'divisor25:divisor|\reloj:clock'
+Slack : -0.249
+TNS   : -0.473
+
+Type  : Fast 1200mV 0C Model Hold 'print:print_cuadrado|explota_nave'
+Slack : 0.151
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.333
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'print:print_cuadrado|explota_nave'
-Slack : -1.449
-TNS   : -1.449
-
-Type  : Fast 1200mV 0C Model Removal 'print:print_cuadrado|explota_nave'
-Slack : 1.802
+Slack : 0.459
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[3]'
-Slack : -7.103
-TNS   : -5046.423
+Slack : -6.953
+TNS   : -4683.601
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[2]'
-Slack : -6.079
-TNS   : -2643.637
+Slack : -6.165
+TNS   : -2619.361
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -4.140
+TNS   : -4.227
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divisor25:divisor|\reloj:clock'
 Slack : -1.000
-TNS   : -196.000
+TNS   : -198.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|divisorPrint:divisor_25|clk'
 Slack : -1.000
 TNS   : -141.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|desp_asteroide0[0]'
-Slack : 0.016
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|explota_nave'
+Slack : -1.000
+TNS   : -2.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|destruidos[0]'
+Slack : 0.084
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|explota_nave'
-Slack : 0.449
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'print:print_cuadrado|desp_asteroide0[0]'
+Slack : 0.225
 TNS   : 0.000
 
 ------------------------------------------------------------

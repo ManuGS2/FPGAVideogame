@@ -1,5 +1,5 @@
 Flow report for juego
-Mon Nov 12 17:45:49 2018
+Tue Nov 20 14:40:26 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 12 17:45:32 2018       ;
+; Flow Status                        ; Successful - Tue Nov 20 14:40:12 2018       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; juego                                       ;
 ; Top-level Entity Name              ; juego                                       ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 5,860 / 49,760 ( 12 % )                     ;
-;     Total combinational functions  ; 5,855 / 49,760 ( 12 % )                     ;
-;     Dedicated logic registers      ; 338 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 338                                         ;
+; Total logic elements               ; 5,735 / 49,760 ( 12 % )                     ;
+;     Total combinational functions  ; 5,726 / 49,760 ( 12 % )                     ;
+;     Dedicated logic registers      ; 342 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 342                                         ;
 ; Total pins                         ; 31 / 360 ( 9 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/12/2018 17:38:40 ;
+; Start date & time ; 11/20/2018 14:35:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; juego               ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589202.154206592037860         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 10995770589202.154274610434604         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --            ; --          ; --         ;
@@ -98,11 +98,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:56     ; 1.0                     ; 4880 MB             ; 00:01:17                           ;
-; Fitter                    ; 00:05:35     ; 1.1                     ; 5521 MB             ; 00:06:26                           ;
-; Assembler                 ; 00:00:09     ; 1.0                     ; 4717 MB             ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:15     ; 1.5                     ; 4884 MB             ; 00:00:20                           ;
-; Total                     ; 00:06:55     ; --                      ; --                  ; 00:08:08                           ;
+; Analysis & Synthesis      ; 00:00:58     ; 1.0                     ; 4884 MB             ; 00:01:19                           ;
+; Fitter                    ; 00:04:02     ; 1.1                     ; 5520 MB             ; 00:04:44                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 4715 MB             ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:13     ; 1.5                     ; 4883 MB             ; 00:00:18                           ;
+; Total                     ; 00:05:17     ; --                      ; --                  ; 00:06:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

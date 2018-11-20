@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for juego
-Mon Nov 12 17:45:49 2018
+Tue Nov 20 14:40:26 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -38,17 +38,15 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
  30. Signal Integrity Metrics (Fast 1200mv 0c Model)
  31. Setup Transfers
  32. Hold Transfers
- 33. Recovery Transfers
- 34. Removal Transfers
- 35. Report TCCS
- 36. Report RSKM
- 37. Unconstrained Paths Summary
- 38. Clock Status Summary
+ 33. Report TCCS
+ 34. Report RSKM
+ 35. Unconstrained Paths Summary
+ 36. Clock Status Summary
+ 37. Unconstrained Input Ports
+ 38. Unconstrained Output Ports
  39. Unconstrained Input Ports
  40. Unconstrained Output Ports
- 41. Unconstrained Input Ports
- 42. Unconstrained Output Ports
- 43. TimeQuest Timing Analyzer Messages
+ 41. TimeQuest Timing Analyzer Messages
 
 
 
@@ -93,12 +91,12 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.53        ;
+; Average used               ; 1.54        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  53.3%      ;
+;     Processor 2            ;  54.0%      ;
 +----------------------------+-------------+
 
 
@@ -110,6 +108,7 @@ refer to the applicable agreement for further details.
 ; clk                                              ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                              ;
 ; divisor25:divisor|\reloj:clock                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { divisor25:divisor|\reloj:clock }                   ;
 ; print:print_cuadrado|desp_asteroide0[0]          ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|desp_asteroide0[0] }          ;
+; print:print_cuadrado|destruidos[0]               ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|destruidos[0] }               ;
 ; print:print_cuadrado|destruidos[2]               ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|destruidos[2] }               ;
 ; print:print_cuadrado|destruidos[3]               ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|destruidos[3] }               ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { print:print_cuadrado|divisorPrint:divisor_25|clk } ;
@@ -117,17 +116,18 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                                                     ;
-+------------+-----------------+--------------------------------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                                       ; Note ;
-+------------+-----------------+--------------------------------------------------+------+
-; 10.58 MHz  ; 10.58 MHz       ; print:print_cuadrado|destruidos[3]               ;      ;
-; 11.16 MHz  ; 11.16 MHz       ; print:print_cuadrado|destruidos[2]               ;      ;
-; 20.65 MHz  ; 20.65 MHz       ; divisor25:divisor|\reloj:clock                   ;      ;
-; 59.57 MHz  ; 59.57 MHz       ; print:print_cuadrado|divisorPrint:divisor_25|clk ;      ;
-; 242.48 MHz ; 242.48 MHz      ; print:print_cuadrado|explota_nave                ;      ;
-+------------+-----------------+--------------------------------------------------+------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                                                ;
++-------------+-----------------+--------------------------------------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                                       ; Note                                           ;
++-------------+-----------------+--------------------------------------------------+------------------------------------------------+
+; 12.85 MHz   ; 12.85 MHz       ; print:print_cuadrado|destruidos[3]               ;                                                ;
+; 13.55 MHz   ; 13.55 MHz       ; print:print_cuadrado|destruidos[2]               ;                                                ;
+; 18.91 MHz   ; 18.91 MHz       ; divisor25:divisor|\reloj:clock                   ;                                                ;
+; 34.59 MHz   ; 34.59 MHz       ; print:print_cuadrado|destruidos[0]               ;                                                ;
+; 78.65 MHz   ; 78.65 MHz       ; print:print_cuadrado|divisorPrint:divisor_25|clk ;                                                ;
+; 1097.69 MHz ; 416.15 MHz      ; print:print_cuadrado|explota_nave                ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+--------------------------------------------------+------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -136,47 +136,43 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------+---------+---------------+
 ; Clock                                            ; Slack   ; End Point TNS ;
 +--------------------------------------------------+---------+---------------+
-; print:print_cuadrado|destruidos[2]               ; -53.723 ; -93.112       ;
-; print:print_cuadrado|destruidos[3]               ; -53.238 ; -108.655      ;
-; divisor25:divisor|\reloj:clock                   ; -28.040 ; -2025.462     ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; -18.822 ; -1656.082     ;
-; print:print_cuadrado|explota_nave                ; -4.612  ; -4.612        ;
-; print:print_cuadrado|desp_asteroide0[0]          ; -2.873  ; -143.839      ;
-; clk                                              ; -0.805  ; -0.805        ;
+; print:print_cuadrado|destruidos[2]               ; -45.055 ; -81.972       ;
+; print:print_cuadrado|destruidos[3]               ; -44.419 ; -96.871       ;
+; print:print_cuadrado|destruidos[0]               ; -38.278 ; -38.278       ;
+; divisor25:divisor|\reloj:clock                   ; -25.947 ; -2070.571     ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; -15.422 ; -901.126      ;
+; print:print_cuadrado|desp_asteroide0[0]          ; -1.957  ; -68.399       ;
+; clk                                              ; -0.868  ; -0.868        ;
+; print:print_cuadrado|explota_nave                ; 0.089   ; 0.000         ;
 +--------------------------------------------------+---------+---------------+
 
 
-+---------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Hold Summary                                        ;
-+--------------------------------------------------+--------+---------------+
-; Clock                                            ; Slack  ; End Point TNS ;
-+--------------------------------------------------+--------+---------------+
-; print:print_cuadrado|destruidos[3]               ; -4.679 ; -5.665        ;
-; print:print_cuadrado|destruidos[2]               ; -1.433 ; -1.433        ;
-; print:print_cuadrado|desp_asteroide0[0]          ; -0.033 ; -0.038        ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; 0.341  ; 0.000         ;
-; divisor25:divisor|\reloj:clock                   ; 0.342  ; 0.000         ;
-; print:print_cuadrado|explota_nave                ; 0.682  ; 0.000         ;
-; clk                                              ; 0.713  ; 0.000         ;
-+--------------------------------------------------+--------+---------------+
++----------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                                         ;
++--------------------------------------------------+---------+---------------+
+; Clock                                            ; Slack   ; End Point TNS ;
++--------------------------------------------------+---------+---------------+
+; print:print_cuadrado|destruidos[3]               ; -18.495 ; -30.040       ;
+; print:print_cuadrado|destruidos[2]               ; -15.857 ; -24.222       ;
+; print:print_cuadrado|desp_asteroide0[0]          ; -3.095  ; -44.323       ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; -0.663  ; -1.345        ;
+; print:print_cuadrado|destruidos[0]               ; -0.642  ; -0.642        ;
+; divisor25:divisor|\reloj:clock                   ; -0.136  ; -0.136        ;
+; print:print_cuadrado|explota_nave                ; 0.344   ; 0.000         ;
+; clk                                              ; 0.663   ; 0.000         ;
++--------------------------------------------------+---------+---------------+
 
 
-+------------------------------------------------------------+
-; Slow 1200mV 85C Model Recovery Summary                     ;
-+-----------------------------------+--------+---------------+
-; Clock                             ; Slack  ; End Point TNS ;
-+-----------------------------------+--------+---------------+
-; print:print_cuadrado|explota_nave ; -3.645 ; -3.645        ;
-+-----------------------------------+--------+---------------+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
 
 
-+-----------------------------------------------------------+
-; Slow 1200mV 85C Model Removal Summary                     ;
-+-----------------------------------+-------+---------------+
-; Clock                             ; Slack ; End Point TNS ;
-+-----------------------------------+-------+---------------+
-; print:print_cuadrado|explota_nave ; 3.122 ; 0.000         ;
-+-----------------------------------+-------+---------------+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
 
 
 +----------------------------------------------------------------------------+
@@ -184,13 +180,14 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------+---------+---------------+
 ; Clock                                            ; Slack   ; End Point TNS ;
 +--------------------------------------------------+---------+---------------+
-; print:print_cuadrado|destruidos[3]               ; -18.566 ; -14197.460    ;
-; print:print_cuadrado|destruidos[2]               ; -16.090 ; -7667.510     ;
+; print:print_cuadrado|destruidos[3]               ; -18.057 ; -13313.070    ;
+; print:print_cuadrado|destruidos[2]               ; -16.055 ; -7507.942     ;
 ; clk                                              ; -3.000  ; -4.403        ;
-; divisor25:divisor|\reloj:clock                   ; -1.403  ; -274.988      ;
+; divisor25:divisor|\reloj:clock                   ; -1.403  ; -277.794      ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; -1.403  ; -197.823      ;
-; print:print_cuadrado|desp_asteroide0[0]          ; 0.291   ; 0.000         ;
-; print:print_cuadrado|explota_nave                ; 0.448   ; 0.000         ;
+; print:print_cuadrado|explota_nave                ; -1.403  ; -2.806        ;
+; print:print_cuadrado|destruidos[0]               ; -0.254  ; -1.244        ;
+; print:print_cuadrado|desp_asteroide0[0]          ; 0.417   ; 0.000         ;
 +--------------------------------------------------+---------+---------------+
 
 
@@ -200,17 +197,18 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 No synchronizer chains to report.
 
 
-+----------------------------------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                                                      ;
-+------------+-----------------+--------------------------------------------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name                                       ; Note ;
-+------------+-----------------+--------------------------------------------------+------+
-; 11.48 MHz  ; 11.48 MHz       ; print:print_cuadrado|destruidos[3]               ;      ;
-; 12.12 MHz  ; 12.12 MHz       ; print:print_cuadrado|destruidos[2]               ;      ;
-; 22.46 MHz  ; 22.46 MHz       ; divisor25:divisor|\reloj:clock                   ;      ;
-; 65.17 MHz  ; 65.17 MHz       ; print:print_cuadrado|divisorPrint:divisor_25|clk ;      ;
-; 260.42 MHz ; 260.42 MHz      ; print:print_cuadrado|explota_nave                ;      ;
-+------------+-----------------+--------------------------------------------------+------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                                                 ;
++-------------+-----------------+--------------------------------------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                                       ; Note                                           ;
++-------------+-----------------+--------------------------------------------------+------------------------------------------------+
+; 13.98 MHz   ; 13.98 MHz       ; print:print_cuadrado|destruidos[3]               ;                                                ;
+; 14.73 MHz   ; 14.73 MHz       ; print:print_cuadrado|destruidos[2]               ;                                                ;
+; 20.53 MHz   ; 20.53 MHz       ; divisor25:divisor|\reloj:clock                   ;                                                ;
+; 36.82 MHz   ; 36.82 MHz       ; print:print_cuadrado|destruidos[0]               ;                                                ;
+; 85.44 MHz   ; 85.44 MHz       ; print:print_cuadrado|divisorPrint:divisor_25|clk ;                                                ;
+; 1199.04 MHz ; 416.15 MHz      ; print:print_cuadrado|explota_nave                ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+--------------------------------------------------+------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -219,47 +217,43 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------+---------+---------------+
 ; Clock                                            ; Slack   ; End Point TNS ;
 +--------------------------------------------------+---------+---------------+
-; print:print_cuadrado|destruidos[2]               ; -49.347 ; -85.805       ;
-; print:print_cuadrado|destruidos[3]               ; -48.889 ; -99.767       ;
-; divisor25:divisor|\reloj:clock                   ; -25.420 ; -1849.321     ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; -16.893 ; -1495.709     ;
-; print:print_cuadrado|explota_nave                ; -4.174  ; -4.174        ;
-; print:print_cuadrado|desp_asteroide0[0]          ; -2.870  ; -140.631      ;
-; clk                                              ; -0.689  ; -0.689        ;
+; print:print_cuadrado|destruidos[2]               ; -41.327 ; -75.272       ;
+; print:print_cuadrado|destruidos[3]               ; -40.745 ; -88.665       ;
+; print:print_cuadrado|destruidos[0]               ; -35.177 ; -35.177       ;
+; divisor25:divisor|\reloj:clock                   ; -23.858 ; -1899.502     ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; -13.917 ; -815.176      ;
+; print:print_cuadrado|desp_asteroide0[0]          ; -1.926  ; -66.981       ;
+; clk                                              ; -0.677  ; -0.677        ;
+; print:print_cuadrado|explota_nave                ; 0.166   ; 0.000         ;
 +--------------------------------------------------+---------+---------------+
 
 
-+---------------------------------------------------------------------------+
-; Slow 1200mV 0C Model Hold Summary                                         ;
-+--------------------------------------------------+--------+---------------+
-; Clock                                            ; Slack  ; End Point TNS ;
-+--------------------------------------------------+--------+---------------+
-; print:print_cuadrado|destruidos[3]               ; -4.476 ; -5.473        ;
-; print:print_cuadrado|destruidos[2]               ; -1.555 ; -1.555        ;
-; print:print_cuadrado|desp_asteroide0[0]          ; -0.063 ; -0.068        ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; 0.306  ; 0.000         ;
-; divisor25:divisor|\reloj:clock                   ; 0.307  ; 0.000         ;
-; clk                                              ; 0.603  ; 0.000         ;
-; print:print_cuadrado|explota_nave                ; 0.636  ; 0.000         ;
-+--------------------------------------------------+--------+---------------+
++----------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                                          ;
++--------------------------------------------------+---------+---------------+
+; Clock                                            ; Slack   ; End Point TNS ;
++--------------------------------------------------+---------+---------------+
+; print:print_cuadrado|destruidos[3]               ; -16.776 ; -27.260       ;
+; print:print_cuadrado|destruidos[2]               ; -14.372 ; -21.958       ;
+; print:print_cuadrado|desp_asteroide0[0]          ; -2.762  ; -38.890       ;
+; print:print_cuadrado|destruidos[0]               ; -0.599  ; -0.599        ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; -0.537  ; -1.386        ;
+; divisor25:divisor|\reloj:clock                   ; -0.075  ; -0.075        ;
+; print:print_cuadrado|explota_nave                ; 0.309   ; 0.000         ;
+; clk                                              ; 0.518   ; 0.000         ;
++--------------------------------------------------+---------+---------------+
 
 
-+------------------------------------------------------------+
-; Slow 1200mV 0C Model Recovery Summary                      ;
-+-----------------------------------+--------+---------------+
-; Clock                             ; Slack  ; End Point TNS ;
-+-----------------------------------+--------+---------------+
-; print:print_cuadrado|explota_nave ; -3.295 ; -3.295        ;
-+-----------------------------------+--------+---------------+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
 
 
-+-----------------------------------------------------------+
-; Slow 1200mV 0C Model Removal Summary                      ;
-+-----------------------------------+-------+---------------+
-; Clock                             ; Slack ; End Point TNS ;
-+-----------------------------------+-------+---------------+
-; print:print_cuadrado|explota_nave ; 2.894 ; 0.000         ;
-+-----------------------------------+-------+---------------+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
 
 
 +----------------------------------------------------------------------------+
@@ -267,13 +261,14 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------------------+---------+---------------+
 ; Clock                                            ; Slack   ; End Point TNS ;
 +--------------------------------------------------+---------+---------------+
-; print:print_cuadrado|destruidos[3]               ; -16.902 ; -12794.300    ;
-; print:print_cuadrado|destruidos[2]               ; -14.614 ; -6903.047     ;
+; print:print_cuadrado|destruidos[3]               ; -16.385 ; -11953.071    ;
+; print:print_cuadrado|destruidos[2]               ; -14.563 ; -6745.384     ;
 ; clk                                              ; -3.000  ; -4.403        ;
-; divisor25:divisor|\reloj:clock                   ; -1.403  ; -274.988      ;
+; divisor25:divisor|\reloj:clock                   ; -1.403  ; -277.794      ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; -1.403  ; -197.823      ;
-; print:print_cuadrado|desp_asteroide0[0]          ; -0.081  ; -1.242        ;
-; print:print_cuadrado|explota_nave                ; 0.483   ; 0.000         ;
+; print:print_cuadrado|explota_nave                ; -1.403  ; -2.806        ;
+; print:print_cuadrado|destruidos[0]               ; -0.231  ; -0.940        ;
+; print:print_cuadrado|desp_asteroide0[0]          ; 0.246   ; 0.000         ;
 +--------------------------------------------------+---------+---------------+
 
 
@@ -288,13 +283,14 @@ No synchronizer chains to report.
 +--------------------------------------------------+---------+---------------+
 ; Clock                                            ; Slack   ; End Point TNS ;
 +--------------------------------------------------+---------+---------------+
-; print:print_cuadrado|destruidos[2]               ; -22.892 ; -39.775       ;
-; print:print_cuadrado|destruidos[3]               ; -22.726 ; -45.460       ;
-; divisor25:divisor|\reloj:clock                   ; -11.661 ; -820.062      ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; -7.796  ; -600.270      ;
-; print:print_cuadrado|explota_nave                ; -1.832  ; -1.832        ;
-; print:print_cuadrado|desp_asteroide0[0]          ; -1.115  ; -46.676       ;
-; clk                                              ; -0.133  ; -0.133        ;
+; print:print_cuadrado|destruidos[2]               ; -19.158 ; -35.095       ;
+; print:print_cuadrado|destruidos[3]               ; -18.908 ; -40.491       ;
+; print:print_cuadrado|destruidos[0]               ; -16.495 ; -16.495       ;
+; divisor25:divisor|\reloj:clock                   ; -10.837 ; -852.773      ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; -6.168  ; -321.683      ;
+; print:print_cuadrado|desp_asteroide0[0]          ; -0.487  ; -12.486       ;
+; clk                                              ; -0.285  ; -0.285        ;
+; print:print_cuadrado|explota_nave                ; 0.611   ; 0.000         ;
 +--------------------------------------------------+---------+---------------+
 
 
@@ -303,32 +299,27 @@ No synchronizer chains to report.
 +--------------------------------------------------+--------+---------------+
 ; Clock                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------+--------+---------------+
-; print:print_cuadrado|destruidos[3]               ; -1.008 ; -1.262        ;
-; print:print_cuadrado|desp_asteroide0[0]          ; -0.088 ; -0.122        ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; 0.148  ; 0.000         ;
-; divisor25:divisor|\reloj:clock                   ; 0.149  ; 0.000         ;
-; print:print_cuadrado|explota_nave                ; 0.244  ; 0.000         ;
-; print:print_cuadrado|destruidos[2]               ; 0.323  ; 0.000         ;
-; clk                                              ; 0.333  ; 0.000         ;
+; print:print_cuadrado|destruidos[3]               ; -7.470 ; -12.300       ;
+; print:print_cuadrado|destruidos[2]               ; -6.403 ; -9.956        ;
+; print:print_cuadrado|desp_asteroide0[0]          ; -1.437 ; -21.965       ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; -0.498 ; -1.258        ;
+; print:print_cuadrado|destruidos[0]               ; -0.270 ; -0.270        ;
+; divisor25:divisor|\reloj:clock                   ; -0.249 ; -0.473        ;
+; print:print_cuadrado|explota_nave                ; 0.151  ; 0.000         ;
+; clk                                              ; 0.459  ; 0.000         ;
 +--------------------------------------------------+--------+---------------+
 
 
-+------------------------------------------------------------+
-; Fast 1200mV 0C Model Recovery Summary                      ;
-+-----------------------------------+--------+---------------+
-; Clock                             ; Slack  ; End Point TNS ;
-+-----------------------------------+--------+---------------+
-; print:print_cuadrado|explota_nave ; -1.449 ; -1.449        ;
-+-----------------------------------+--------+---------------+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
 
 
-+-----------------------------------------------------------+
-; Fast 1200mV 0C Model Removal Summary                      ;
-+-----------------------------------+-------+---------------+
-; Clock                             ; Slack ; End Point TNS ;
-+-----------------------------------+-------+---------------+
-; print:print_cuadrado|explota_nave ; 1.802 ; 0.000         ;
-+-----------------------------------+-------+---------------+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
 
 
 +---------------------------------------------------------------------------+
@@ -336,13 +327,14 @@ No synchronizer chains to report.
 +--------------------------------------------------+--------+---------------+
 ; Clock                                            ; Slack  ; End Point TNS ;
 +--------------------------------------------------+--------+---------------+
-; print:print_cuadrado|destruidos[3]               ; -7.103 ; -5046.423     ;
-; print:print_cuadrado|destruidos[2]               ; -6.079 ; -2643.637     ;
-; clk                                              ; -3.000 ; -4.140        ;
-; divisor25:divisor|\reloj:clock                   ; -1.000 ; -196.000      ;
+; print:print_cuadrado|destruidos[3]               ; -6.953 ; -4683.601     ;
+; print:print_cuadrado|destruidos[2]               ; -6.165 ; -2619.361     ;
+; clk                                              ; -3.000 ; -4.227        ;
+; divisor25:divisor|\reloj:clock                   ; -1.000 ; -198.000      ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; -1.000 ; -141.000      ;
-; print:print_cuadrado|desp_asteroide0[0]          ; 0.016  ; 0.000         ;
-; print:print_cuadrado|explota_nave                ; 0.449  ; 0.000         ;
+; print:print_cuadrado|explota_nave                ; -1.000 ; -2.000        ;
+; print:print_cuadrado|destruidos[0]               ; 0.084  ; 0.000         ;
+; print:print_cuadrado|desp_asteroide0[0]          ; 0.225  ; 0.000         ;
 +--------------------------------------------------+--------+---------------+
 
 
@@ -352,28 +344,30 @@ No synchronizer chains to report.
 No synchronizer chains to report.
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                                               ;
-+---------------------------------------------------+-----------+--------+----------+---------+---------------------+
-; Clock                                             ; Setup     ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
-+---------------------------------------------------+-----------+--------+----------+---------+---------------------+
-; Worst-case Slack                                  ; -53.723   ; -4.679 ; -3.645   ; 1.802   ; -18.566             ;
-;  clk                                              ; -0.805    ; 0.333  ; N/A      ; N/A     ; -3.000              ;
-;  divisor25:divisor|\reloj:clock                   ; -28.040   ; 0.149  ; N/A      ; N/A     ; -1.403              ;
-;  print:print_cuadrado|desp_asteroide0[0]          ; -2.873    ; -0.088 ; N/A      ; N/A     ; -0.081              ;
-;  print:print_cuadrado|destruidos[2]               ; -53.723   ; -1.555 ; N/A      ; N/A     ; -16.090             ;
-;  print:print_cuadrado|destruidos[3]               ; -53.238   ; -4.679 ; N/A      ; N/A     ; -18.566             ;
-;  print:print_cuadrado|divisorPrint:divisor_25|clk ; -18.822   ; 0.148  ; N/A      ; N/A     ; -1.403              ;
-;  print:print_cuadrado|explota_nave                ; -4.612    ; 0.244  ; -3.645   ; 1.802   ; 0.448               ;
-; Design-wide TNS                                   ; -4032.567 ; -7.136 ; -3.645   ; 0.0     ; -22342.184          ;
-;  clk                                              ; -0.805    ; 0.000  ; N/A      ; N/A     ; -4.403              ;
-;  divisor25:divisor|\reloj:clock                   ; -2025.462 ; 0.000  ; N/A      ; N/A     ; -274.988            ;
-;  print:print_cuadrado|desp_asteroide0[0]          ; -143.839  ; -0.122 ; N/A      ; N/A     ; -1.242              ;
-;  print:print_cuadrado|destruidos[2]               ; -93.112   ; -1.555 ; N/A      ; N/A     ; -7667.510           ;
-;  print:print_cuadrado|destruidos[3]               ; -108.655  ; -5.665 ; N/A      ; N/A     ; -14197.460          ;
-;  print:print_cuadrado|divisorPrint:divisor_25|clk ; -1656.082 ; 0.000  ; N/A      ; N/A     ; -197.823            ;
-;  print:print_cuadrado|explota_nave                ; -4.612    ; 0.000  ; -3.645   ; 0.000   ; 0.000               ;
-+---------------------------------------------------+-----------+--------+----------+---------+---------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                                 ;
++---------------------------------------------------+-----------+----------+----------+---------+---------------------+
+; Clock                                             ; Setup     ; Hold     ; Recovery ; Removal ; Minimum Pulse Width ;
++---------------------------------------------------+-----------+----------+----------+---------+---------------------+
+; Worst-case Slack                                  ; -45.055   ; -18.495  ; N/A      ; N/A     ; -18.057             ;
+;  clk                                              ; -0.868    ; 0.459    ; N/A      ; N/A     ; -3.000              ;
+;  divisor25:divisor|\reloj:clock                   ; -25.947   ; -0.249   ; N/A      ; N/A     ; -1.403              ;
+;  print:print_cuadrado|desp_asteroide0[0]          ; -1.957    ; -3.095   ; N/A      ; N/A     ; 0.225               ;
+;  print:print_cuadrado|destruidos[0]               ; -38.278   ; -0.642   ; N/A      ; N/A     ; -0.254              ;
+;  print:print_cuadrado|destruidos[2]               ; -45.055   ; -15.857  ; N/A      ; N/A     ; -16.055             ;
+;  print:print_cuadrado|destruidos[3]               ; -44.419   ; -18.495  ; N/A      ; N/A     ; -18.057             ;
+;  print:print_cuadrado|divisorPrint:divisor_25|clk ; -15.422   ; -0.663   ; N/A      ; N/A     ; -1.403              ;
+;  print:print_cuadrado|explota_nave                ; 0.089     ; 0.151    ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS                                   ; -3258.085 ; -100.708 ; 0.0      ; 0.0     ; -21305.082          ;
+;  clk                                              ; -0.868    ; 0.000    ; N/A      ; N/A     ; -4.403              ;
+;  divisor25:divisor|\reloj:clock                   ; -2070.571 ; -0.473   ; N/A      ; N/A     ; -277.794            ;
+;  print:print_cuadrado|desp_asteroide0[0]          ; -68.399   ; -44.323  ; N/A      ; N/A     ; 0.000               ;
+;  print:print_cuadrado|destruidos[0]               ; -38.278   ; -0.642   ; N/A      ; N/A     ; -1.244              ;
+;  print:print_cuadrado|destruidos[2]               ; -81.972   ; -24.222  ; N/A      ; N/A     ; -7507.942           ;
+;  print:print_cuadrado|destruidos[3]               ; -96.871   ; -30.040  ; N/A      ; N/A     ; -13313.070          ;
+;  print:print_cuadrado|divisorPrint:divisor_25|clk ; -901.126  ; -1.386   ; N/A      ; N/A     ; -197.823            ;
+;  print:print_cuadrado|explota_nave                ; 0.000     ; 0.000    ; N/A      ; N/A     ; -2.806              ;
++---------------------------------------------------+-----------+----------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -536,29 +530,37 @@ No synchronizer chains to report.
 ; From Clock                                       ; To Clock                                         ; RR Paths     ; FR Paths     ; RF Paths     ; FF Paths     ;
 +--------------------------------------------------+--------------------------------------------------+--------------+--------------+--------------+--------------+
 ; divisor25:divisor|\reloj:clock                   ; clk                                              ; 1            ; 1            ; 0            ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; divisor25:divisor|\reloj:clock                   ; 35254        ; > 2147483647 ; 0            ; 2304         ;
+; divisor25:divisor|\reloj:clock                   ; divisor25:divisor|\reloj:clock                   ; 37079        ; > 2147483647 ; 0            ; 2304         ;
 ; print:print_cuadrado|desp_asteroide0[0]          ; divisor25:divisor|\reloj:clock                   ; 165007369    ; 26145289     ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; divisor25:divisor|\reloj:clock                   ; 24           ; 24           ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[3]               ; divisor25:divisor|\reloj:clock                   ; 36           ; 24           ; 0            ; 0            ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; divisor25:divisor|\reloj:clock                   ; 361704696    ; 1            ; 0            ; 0            ;
-; print:print_cuadrado|explota_nave                ; divisor25:divisor|\reloj:clock                   ; 147          ; 365          ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; divisor25:divisor|\reloj:clock                   ; 12           ; 12           ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[2]               ; divisor25:divisor|\reloj:clock                   ; 41           ; 41           ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[3]               ; divisor25:divisor|\reloj:clock                   ; 58           ; 46           ; 0            ; 0            ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; divisor25:divisor|\reloj:clock                   ; 361666846    ; 1            ; 0            ; 0            ;
+; print:print_cuadrado|explota_nave                ; divisor25:divisor|\reloj:clock                   ; 363          ; 0            ; 0            ; 0            ;
 ; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|desp_asteroide0[0]          ; 63           ; 0            ; 9            ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[2]               ; 2708         ; 0            ; 2708         ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[2]               ; 547195976    ; 547195976    ; 547195976    ; 547195976    ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[0]               ; 1216         ; 0            ; 1216         ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|destruidos[0]               ; 52           ; 52           ; 52           ; 52           ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[0]               ; 40152        ; 40152        ; 40152        ; 40152        ;
+; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|destruidos[0]               ; 812300       ; 812300       ; 812300       ; 812300       ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|destruidos[0]               ; > 2147483647 ; 0            ; > 2147483647 ; 0            ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[2]               ; 2384         ; 0            ; 2384         ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|destruidos[2]               ; 52           ; 52           ; 52           ; 52           ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[2]               ; 688567344    ; 688567344    ; 688567344    ; 688567344    ;
 ; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|destruidos[2]               ; > 2147483647 ; > 2147483647 ; > 2147483647 ; > 2147483647 ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|destruidos[2]               ; > 2147483647 ; 0            ; > 2147483647 ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[3]               ; 3698         ; 0            ; 2708         ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[3]               ; 547196033    ; 547196033    ; 547195976    ; 547195976    ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[3]               ; 3011         ; 0            ; 2384         ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|destruidos[3]               ; 52           ; 52           ; 52           ; 52           ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[3]               ; 688567374    ; 688567374    ; 688567344    ; 688567344    ;
 ; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|destruidos[3]               ; > 2147483647 ; > 2147483647 ; > 2147483647 ; > 2147483647 ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|destruidos[3]               ; > 2147483647 ; 0            ; > 2147483647 ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 208          ; 0            ; 0            ; 0            ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 403          ; 0            ; 0            ; 0            ;
 ; print:print_cuadrado|desp_asteroide0[0]          ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 68302        ; 11296        ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 2952         ; 2952         ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 44815        ; 44815        ; 0            ; 0            ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 22777927     ; 0            ; 0            ; 0            ;
-; print:print_cuadrado|explota_nave                ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 12           ; 23           ; 0            ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|explota_nave                ; 0            ; 0            ; 1            ; 0            ;
-; print:print_cuadrado|explota_nave                ; print:print_cuadrado|explota_nave                ; 0            ; 0            ; 1            ; 2            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 10           ; 10           ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 8            ; 8            ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 7            ; 7            ; 0            ; 0            ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 22276        ; 0            ; 0            ; 0            ;
+; print:print_cuadrado|explota_nave                ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 23           ; 1            ; 0            ; 0            ;
+; print:print_cuadrado|explota_nave                ; print:print_cuadrado|explota_nave                ; 3            ; 0            ; 0            ; 0            ;
 +--------------------------------------------------+--------------------------------------------------+--------------+--------------+--------------+--------------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -569,50 +571,38 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock                                       ; To Clock                                         ; RR Paths     ; FR Paths     ; RF Paths     ; FF Paths     ;
 +--------------------------------------------------+--------------------------------------------------+--------------+--------------+--------------+--------------+
 ; divisor25:divisor|\reloj:clock                   ; clk                                              ; 1            ; 1            ; 0            ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; divisor25:divisor|\reloj:clock                   ; 35254        ; > 2147483647 ; 0            ; 2304         ;
+; divisor25:divisor|\reloj:clock                   ; divisor25:divisor|\reloj:clock                   ; 37079        ; > 2147483647 ; 0            ; 2304         ;
 ; print:print_cuadrado|desp_asteroide0[0]          ; divisor25:divisor|\reloj:clock                   ; 165007369    ; 26145289     ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; divisor25:divisor|\reloj:clock                   ; 24           ; 24           ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[3]               ; divisor25:divisor|\reloj:clock                   ; 36           ; 24           ; 0            ; 0            ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; divisor25:divisor|\reloj:clock                   ; 361704696    ; 1            ; 0            ; 0            ;
-; print:print_cuadrado|explota_nave                ; divisor25:divisor|\reloj:clock                   ; 147          ; 365          ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; divisor25:divisor|\reloj:clock                   ; 12           ; 12           ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[2]               ; divisor25:divisor|\reloj:clock                   ; 41           ; 41           ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[3]               ; divisor25:divisor|\reloj:clock                   ; 58           ; 46           ; 0            ; 0            ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; divisor25:divisor|\reloj:clock                   ; 361666846    ; 1            ; 0            ; 0            ;
+; print:print_cuadrado|explota_nave                ; divisor25:divisor|\reloj:clock                   ; 363          ; 0            ; 0            ; 0            ;
 ; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|desp_asteroide0[0]          ; 63           ; 0            ; 9            ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[2]               ; 2708         ; 0            ; 2708         ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[2]               ; 547195976    ; 547195976    ; 547195976    ; 547195976    ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[0]               ; 1216         ; 0            ; 1216         ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|destruidos[0]               ; 52           ; 52           ; 52           ; 52           ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[0]               ; 40152        ; 40152        ; 40152        ; 40152        ;
+; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|destruidos[0]               ; 812300       ; 812300       ; 812300       ; 812300       ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|destruidos[0]               ; > 2147483647 ; 0            ; > 2147483647 ; 0            ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[2]               ; 2384         ; 0            ; 2384         ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|destruidos[2]               ; 52           ; 52           ; 52           ; 52           ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[2]               ; 688567344    ; 688567344    ; 688567344    ; 688567344    ;
 ; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|destruidos[2]               ; > 2147483647 ; > 2147483647 ; > 2147483647 ; > 2147483647 ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|destruidos[2]               ; > 2147483647 ; 0            ; > 2147483647 ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[3]               ; 3698         ; 0            ; 2708         ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[3]               ; 547196033    ; 547196033    ; 547195976    ; 547195976    ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|destruidos[3]               ; 3011         ; 0            ; 2384         ; 0            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|destruidos[3]               ; 52           ; 52           ; 52           ; 52           ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[3]               ; 688567374    ; 688567374    ; 688567344    ; 688567344    ;
 ; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|destruidos[3]               ; > 2147483647 ; > 2147483647 ; > 2147483647 ; > 2147483647 ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|destruidos[3]               ; > 2147483647 ; 0            ; > 2147483647 ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 208          ; 0            ; 0            ; 0            ;
+; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 403          ; 0            ; 0            ; 0            ;
 ; print:print_cuadrado|desp_asteroide0[0]          ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 68302        ; 11296        ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 2952         ; 2952         ; 0            ; 0            ;
-; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 44815        ; 44815        ; 0            ; 0            ;
-; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 22777927     ; 0            ; 0            ; 0            ;
-; print:print_cuadrado|explota_nave                ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 12           ; 23           ; 0            ; 0            ;
-; divisor25:divisor|\reloj:clock                   ; print:print_cuadrado|explota_nave                ; 0            ; 0            ; 1            ; 0            ;
-; print:print_cuadrado|explota_nave                ; print:print_cuadrado|explota_nave                ; 0            ; 0            ; 1            ; 2            ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 10           ; 10           ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 8            ; 8            ; 0            ; 0            ;
+; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 7            ; 7            ; 0            ; 0            ;
+; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 22276        ; 0            ; 0            ; 0            ;
+; print:print_cuadrado|explota_nave                ; print:print_cuadrado|divisorPrint:divisor_25|clk ; 23           ; 1            ; 0            ; 0            ;
+; print:print_cuadrado|explota_nave                ; print:print_cuadrado|explota_nave                ; 3            ; 0            ; 0            ; 0            ;
 +--------------------------------------------------+--------------------------------------------------+--------------+--------------+--------------+--------------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Recovery Transfers                                                                                             ;
-+--------------------------------+-----------------------------------+----------+----------+----------+----------+
-; From Clock                     ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+--------------------------------+-----------------------------------+----------+----------+----------+----------+
-; divisor25:divisor|\reloj:clock ; print:print_cuadrado|explota_nave ; 0        ; 0        ; 1        ; 0        ;
-+--------------------------------+-----------------------------------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Removal Transfers                                                                                              ;
-+--------------------------------+-----------------------------------+----------+----------+----------+----------+
-; From Clock                     ; To Clock                          ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+--------------------------------+-----------------------------------+----------+----------+----------+----------+
-; divisor25:divisor|\reloj:clock ; print:print_cuadrado|explota_nave ; 0        ; 0        ; 1        ; 0        ;
-+--------------------------------+-----------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -636,7 +626,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 6     ; 6    ;
-; Unconstrained Input Port Paths  ; 81    ; 81   ;
+; Unconstrained Input Port Paths  ; 80    ; 80   ;
 ; Unconstrained Output Ports      ; 20    ; 20   ;
 ; Unconstrained Output Port Paths ; 76    ; 76   ;
 +---------------------------------+-------+------+
@@ -650,6 +640,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; clk                                              ; clk                                              ; Base ; Constrained ;
 ; divisor25:divisor|\reloj:clock                   ; divisor25:divisor|\reloj:clock                   ; Base ; Constrained ;
 ; print:print_cuadrado|desp_asteroide0[0]          ; print:print_cuadrado|desp_asteroide0[0]          ; Base ; Constrained ;
+; print:print_cuadrado|destruidos[0]               ; print:print_cuadrado|destruidos[0]               ; Base ; Constrained ;
 ; print:print_cuadrado|destruidos[2]               ; print:print_cuadrado|destruidos[2]               ; Base ; Constrained ;
 ; print:print_cuadrado|destruidos[3]               ; print:print_cuadrado|destruidos[3]               ; Base ; Constrained ;
 ; print:print_cuadrado|divisorPrint:divisor_25|clk ; print:print_cuadrado|divisorPrint:divisor_25|clk ; Base ; Constrained ;
@@ -747,84 +738,82 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Nov 12 17:45:34 2018
+    Info: Processing started: Tue Nov 20 14:40:13 2018
 Info: Command: quartus_sta videogame -c juego
 Info: qsta_default_script.tcl version: #3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Warning (335093): TimeQuest Timing Analyzer is analyzing 76 combinational loops as latches. For more details, run the Check Timing command in the TimeQuest Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Warning (335093): TimeQuest Timing Analyzer is analyzing 75 combinational loops as latches. For more details, run the Check Timing command in the TimeQuest Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'juego.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name divisor25:divisor|\reloj:clock divisor25:divisor|\reloj:clock
     Info (332105): create_clock -period 1.000 -name clk clk
     Info (332105): create_clock -period 1.000 -name print:print_cuadrado|divisorPrint:divisor_25|clk print:print_cuadrado|divisorPrint:divisor_25|clk
-    Info (332105): create_clock -period 1.000 -name print:print_cuadrado|destruidos[2] print:print_cuadrado|destruidos[2]
-    Info (332105): create_clock -period 1.000 -name print:print_cuadrado|desp_asteroide0[0] print:print_cuadrado|desp_asteroide0[0]
     Info (332105): create_clock -period 1.000 -name print:print_cuadrado|explota_nave print:print_cuadrado|explota_nave
+    Info (332105): create_clock -period 1.000 -name print:print_cuadrado|desp_asteroide0[0] print:print_cuadrado|desp_asteroide0[0]
+    Info (332105): create_clock -period 1.000 -name print:print_cuadrado|destruidos[0] print:print_cuadrado|destruidos[0]
+    Info (332105): create_clock -period 1.000 -name print:print_cuadrado|destruidos[2] print:print_cuadrado|destruidos[2]
     Info (332105): create_clock -period 1.000 -name print:print_cuadrado|destruidos[3] print:print_cuadrado|destruidos[3]
-Warning (332125): Found combinational loop of 2 nodes File: D:/Facultad/7 semestre/Diseño VLSI/Proyecto/FPGAVideogame/print.vhd Line: 645
-    Warning (332126): Node "print_cuadrado|vidas[0]~0|combout"
-    Warning (332126): Node "print_cuadrado|vidas[0]~0|dataa"
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[4]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[5]~6  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[6]~8  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|StageOut[35]~112  from: datad  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|StageOut[35]~113  from: datad  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[3]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[4]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[5]~6  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[6]~8  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|StageOut[35]~112  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|StageOut[35]~113  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|StageOut[93]~143  from: datad  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
@@ -857,12 +846,12 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: cin  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[82]~177  from: datac  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[91]~151  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[92]~150  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[93]~149  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[82]~177  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[91]~151  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[92]~150  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[93]~149  from: datac  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[96]~148  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[97]~137  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[97]~137  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
@@ -921,7 +910,7 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_9_result_int[9]~16  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_9_result_int[9]~16  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: datad  to: combout
     Info (332098): Cell: print_cuadrado|color_numero3[10]~19  from: dataa  to: combout
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
@@ -929,104 +918,101 @@ Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -53.723
+Info (332146): Worst-case setup slack is -45.055
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -53.723             -93.112 print:print_cuadrado|destruidos[2] 
-    Info (332119):   -53.238            -108.655 print:print_cuadrado|destruidos[3] 
-    Info (332119):   -28.040           -2025.462 divisor25:divisor|\reloj:clock 
-    Info (332119):   -18.822           -1656.082 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):    -4.612              -4.612 print:print_cuadrado|explota_nave 
-    Info (332119):    -2.873            -143.839 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):    -0.805              -0.805 clk 
-Info (332146): Worst-case hold slack is -4.679
+    Info (332119):   -45.055             -81.972 print:print_cuadrado|destruidos[2] 
+    Info (332119):   -44.419             -96.871 print:print_cuadrado|destruidos[3] 
+    Info (332119):   -38.278             -38.278 print:print_cuadrado|destruidos[0] 
+    Info (332119):   -25.947           -2070.571 divisor25:divisor|\reloj:clock 
+    Info (332119):   -15.422            -901.126 print:print_cuadrado|divisorPrint:divisor_25|clk 
+    Info (332119):    -1.957             -68.399 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.868              -0.868 clk 
+    Info (332119):     0.089               0.000 print:print_cuadrado|explota_nave 
+Info (332146): Worst-case hold slack is -18.495
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.679              -5.665 print:print_cuadrado|destruidos[3] 
-    Info (332119):    -1.433              -1.433 print:print_cuadrado|destruidos[2] 
-    Info (332119):    -0.033              -0.038 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):     0.341               0.000 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):     0.342               0.000 divisor25:divisor|\reloj:clock 
-    Info (332119):     0.682               0.000 print:print_cuadrado|explota_nave 
-    Info (332119):     0.713               0.000 clk 
-Info (332146): Worst-case recovery slack is -3.645
+    Info (332119):   -18.495             -30.040 print:print_cuadrado|destruidos[3] 
+    Info (332119):   -15.857             -24.222 print:print_cuadrado|destruidos[2] 
+    Info (332119):    -3.095             -44.323 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.663              -1.345 print:print_cuadrado|divisorPrint:divisor_25|clk 
+    Info (332119):    -0.642              -0.642 print:print_cuadrado|destruidos[0] 
+    Info (332119):    -0.136              -0.136 divisor25:divisor|\reloj:clock 
+    Info (332119):     0.344               0.000 print:print_cuadrado|explota_nave 
+    Info (332119):     0.663               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -18.057
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.645              -3.645 print:print_cuadrado|explota_nave 
-Info (332146): Worst-case removal slack is 3.122
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     3.122               0.000 print:print_cuadrado|explota_nave 
-Info (332146): Worst-case minimum pulse width slack is -18.566
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):   -18.566          -14197.460 print:print_cuadrado|destruidos[3] 
-    Info (332119):   -16.090           -7667.510 print:print_cuadrado|destruidos[2] 
+    Info (332119):   -18.057          -13313.070 print:print_cuadrado|destruidos[3] 
+    Info (332119):   -16.055           -7507.942 print:print_cuadrado|destruidos[2] 
     Info (332119):    -3.000              -4.403 clk 
-    Info (332119):    -1.403            -274.988 divisor25:divisor|\reloj:clock 
+    Info (332119):    -1.403            -277.794 divisor25:divisor|\reloj:clock 
     Info (332119):    -1.403            -197.823 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):     0.291               0.000 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):     0.448               0.000 print:print_cuadrado|explota_nave 
+    Info (332119):    -1.403              -2.806 print:print_cuadrado|explota_nave 
+    Info (332119):    -0.254              -1.244 print:print_cuadrado|destruidos[0] 
+    Info (332119):     0.417               0.000 print:print_cuadrado|desp_asteroide0[0] 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[4]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[5]~6  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[6]~8  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|StageOut[35]~112  from: datad  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|StageOut[35]~113  from: datad  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[3]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[4]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[5]~6  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[6]~8  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|StageOut[35]~112  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|StageOut[35]~113  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|StageOut[93]~143  from: datad  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
@@ -1059,12 +1045,12 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: cin  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[82]~177  from: datac  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[91]~151  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[92]~150  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[93]~149  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[82]~177  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[91]~151  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[92]~150  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[93]~149  from: datac  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[96]~148  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[97]~137  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[97]~137  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
@@ -1123,106 +1109,103 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_9_result_int[9]~16  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_9_result_int[9]~16  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: datad  to: combout
     Info (332098): Cell: print_cuadrado|color_numero3[10]~19  from: dataa  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -49.347
+Info (332146): Worst-case setup slack is -41.327
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -49.347             -85.805 print:print_cuadrado|destruidos[2] 
-    Info (332119):   -48.889             -99.767 print:print_cuadrado|destruidos[3] 
-    Info (332119):   -25.420           -1849.321 divisor25:divisor|\reloj:clock 
-    Info (332119):   -16.893           -1495.709 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):    -4.174              -4.174 print:print_cuadrado|explota_nave 
-    Info (332119):    -2.870            -140.631 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):    -0.689              -0.689 clk 
-Info (332146): Worst-case hold slack is -4.476
+    Info (332119):   -41.327             -75.272 print:print_cuadrado|destruidos[2] 
+    Info (332119):   -40.745             -88.665 print:print_cuadrado|destruidos[3] 
+    Info (332119):   -35.177             -35.177 print:print_cuadrado|destruidos[0] 
+    Info (332119):   -23.858           -1899.502 divisor25:divisor|\reloj:clock 
+    Info (332119):   -13.917            -815.176 print:print_cuadrado|divisorPrint:divisor_25|clk 
+    Info (332119):    -1.926             -66.981 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.677              -0.677 clk 
+    Info (332119):     0.166               0.000 print:print_cuadrado|explota_nave 
+Info (332146): Worst-case hold slack is -16.776
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.476              -5.473 print:print_cuadrado|destruidos[3] 
-    Info (332119):    -1.555              -1.555 print:print_cuadrado|destruidos[2] 
-    Info (332119):    -0.063              -0.068 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):     0.306               0.000 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):     0.307               0.000 divisor25:divisor|\reloj:clock 
-    Info (332119):     0.603               0.000 clk 
-    Info (332119):     0.636               0.000 print:print_cuadrado|explota_nave 
-Info (332146): Worst-case recovery slack is -3.295
+    Info (332119):   -16.776             -27.260 print:print_cuadrado|destruidos[3] 
+    Info (332119):   -14.372             -21.958 print:print_cuadrado|destruidos[2] 
+    Info (332119):    -2.762             -38.890 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.599              -0.599 print:print_cuadrado|destruidos[0] 
+    Info (332119):    -0.537              -1.386 print:print_cuadrado|divisorPrint:divisor_25|clk 
+    Info (332119):    -0.075              -0.075 divisor25:divisor|\reloj:clock 
+    Info (332119):     0.309               0.000 print:print_cuadrado|explota_nave 
+    Info (332119):     0.518               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -16.385
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.295              -3.295 print:print_cuadrado|explota_nave 
-Info (332146): Worst-case removal slack is 2.894
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     2.894               0.000 print:print_cuadrado|explota_nave 
-Info (332146): Worst-case minimum pulse width slack is -16.902
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):   -16.902          -12794.300 print:print_cuadrado|destruidos[3] 
-    Info (332119):   -14.614           -6903.047 print:print_cuadrado|destruidos[2] 
+    Info (332119):   -16.385          -11953.071 print:print_cuadrado|destruidos[3] 
+    Info (332119):   -14.563           -6745.384 print:print_cuadrado|destruidos[2] 
     Info (332119):    -3.000              -4.403 clk 
-    Info (332119):    -1.403            -274.988 divisor25:divisor|\reloj:clock 
+    Info (332119):    -1.403            -277.794 divisor25:divisor|\reloj:clock 
     Info (332119):    -1.403            -197.823 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):    -0.081              -1.242 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):     0.483               0.000 print:print_cuadrado|explota_nave 
+    Info (332119):    -1.403              -2.806 print:print_cuadrado|explota_nave 
+    Info (332119):    -0.231              -0.940 print:print_cuadrado|destruidos[0] 
+    Info (332119):     0.246               0.000 print:print_cuadrado|desp_asteroide0[0] 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332097): The following timing edges are non-unate.  TimeQuest will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[4]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[5]~6  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[6]~8  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|StageOut[35]~112  from: datad  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|StageOut[35]~113  from: datad  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: cin  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Div2|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[3]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[4]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[5]~6  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div0|auto_generated|divider|divider|add_sub_8_result_int[6]~8  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|StageOut[35]~112  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|StageOut[35]~113  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_3_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_4_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_5_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_6_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_7_result_int[3]~4  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[1]~0  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[2]~2  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: cin  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Div1|auto_generated|divider|divider|add_sub_8_result_int[3]~4  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|StageOut[93]~143  from: datad  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_8_result_int[2]~0  from: datab  to: combout
@@ -1255,12 +1238,12 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: cin  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod0|auto_generated|divider|divider|add_sub_9_result_int[9]~14  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[82]~177  from: datac  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[91]~151  from: datab  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[92]~150  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[93]~149  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[82]~177  from: dataa  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[91]~151  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[92]~150  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[93]~149  from: datac  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[96]~148  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[97]~137  from: datac  to: combout
+    Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|StageOut[97]~137  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[1]~0  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_7_result_int[2]~2  from: cin  to: combout
@@ -1319,54 +1302,51 @@ Info (332097): The following timing edges are non-unate.  TimeQuest will assume 
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_9_result_int[9]~16  from: dataa  to: combout
     Info (332098): Cell: print_cuadrado|Mod1|auto_generated|divider|divider|add_sub_9_result_int[9]~16  from: datab  to: combout
     Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: dataa  to: combout
-    Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: datab  to: combout
+    Info (332098): Cell: print_cuadrado|color_numero3[10]~12  from: datad  to: combout
     Info (332098): Cell: print_cuadrado|color_numero3[10]~19  from: dataa  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -22.892
+Info (332146): Worst-case setup slack is -19.158
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -22.892             -39.775 print:print_cuadrado|destruidos[2] 
-    Info (332119):   -22.726             -45.460 print:print_cuadrado|destruidos[3] 
-    Info (332119):   -11.661            -820.062 divisor25:divisor|\reloj:clock 
-    Info (332119):    -7.796            -600.270 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):    -1.832              -1.832 print:print_cuadrado|explota_nave 
-    Info (332119):    -1.115             -46.676 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):    -0.133              -0.133 clk 
-Info (332146): Worst-case hold slack is -1.008
+    Info (332119):   -19.158             -35.095 print:print_cuadrado|destruidos[2] 
+    Info (332119):   -18.908             -40.491 print:print_cuadrado|destruidos[3] 
+    Info (332119):   -16.495             -16.495 print:print_cuadrado|destruidos[0] 
+    Info (332119):   -10.837            -852.773 divisor25:divisor|\reloj:clock 
+    Info (332119):    -6.168            -321.683 print:print_cuadrado|divisorPrint:divisor_25|clk 
+    Info (332119):    -0.487             -12.486 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.285              -0.285 clk 
+    Info (332119):     0.611               0.000 print:print_cuadrado|explota_nave 
+Info (332146): Worst-case hold slack is -7.470
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.008              -1.262 print:print_cuadrado|destruidos[3] 
-    Info (332119):    -0.088              -0.122 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):     0.148               0.000 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):     0.149               0.000 divisor25:divisor|\reloj:clock 
-    Info (332119):     0.244               0.000 print:print_cuadrado|explota_nave 
-    Info (332119):     0.323               0.000 print:print_cuadrado|destruidos[2] 
-    Info (332119):     0.333               0.000 clk 
-Info (332146): Worst-case recovery slack is -1.449
+    Info (332119):    -7.470             -12.300 print:print_cuadrado|destruidos[3] 
+    Info (332119):    -6.403              -9.956 print:print_cuadrado|destruidos[2] 
+    Info (332119):    -1.437             -21.965 print:print_cuadrado|desp_asteroide0[0] 
+    Info (332119):    -0.498              -1.258 print:print_cuadrado|divisorPrint:divisor_25|clk 
+    Info (332119):    -0.270              -0.270 print:print_cuadrado|destruidos[0] 
+    Info (332119):    -0.249              -0.473 divisor25:divisor|\reloj:clock 
+    Info (332119):     0.151               0.000 print:print_cuadrado|explota_nave 
+    Info (332119):     0.459               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -6.953
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.449              -1.449 print:print_cuadrado|explota_nave 
-Info (332146): Worst-case removal slack is 1.802
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):     1.802               0.000 print:print_cuadrado|explota_nave 
-Info (332146): Worst-case minimum pulse width slack is -7.103
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):    -7.103           -5046.423 print:print_cuadrado|destruidos[3] 
-    Info (332119):    -6.079           -2643.637 print:print_cuadrado|destruidos[2] 
-    Info (332119):    -3.000              -4.140 clk 
-    Info (332119):    -1.000            -196.000 divisor25:divisor|\reloj:clock 
+    Info (332119):    -6.953           -4683.601 print:print_cuadrado|destruidos[3] 
+    Info (332119):    -6.165           -2619.361 print:print_cuadrado|destruidos[2] 
+    Info (332119):    -3.000              -4.227 clk 
+    Info (332119):    -1.000            -198.000 divisor25:divisor|\reloj:clock 
     Info (332119):    -1.000            -141.000 print:print_cuadrado|divisorPrint:divisor_25|clk 
-    Info (332119):     0.016               0.000 print:print_cuadrado|desp_asteroide0[0] 
-    Info (332119):     0.449               0.000 print:print_cuadrado|explota_nave 
+    Info (332119):    -1.000              -2.000 print:print_cuadrado|explota_nave 
+    Info (332119):     0.084               0.000 print:print_cuadrado|destruidos[0] 
+    Info (332119):     0.225               0.000 print:print_cuadrado|desp_asteroide0[0] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4884 megabytes
-    Info: Processing ended: Mon Nov 12 17:45:49 2018
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:20
+Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4883 megabytes
+    Info: Processing ended: Tue Nov 20 14:40:26 2018
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:18
 
 

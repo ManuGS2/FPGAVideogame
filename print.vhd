@@ -561,6 +561,7 @@ signal explota_nave : std_logic := '0';
 -- Este ultimo es para hacer un OR con todas las anteriores ya que sólo basta con que
 -- una de las banderas de los asteroides se active para mandar la señal del color al vga
 signal asteroide_valido	: std_logic := '0';
+signal vel_asteroide : integer range 0 to 7 := 0;
 
 --- Señal de reloj a 25H para el movimiento de la nave y asteroides
 signal clk25	: STD_LOGIC := '0';
@@ -621,7 +622,7 @@ begin
 	iniciar : process (clk_vga, vidas) is
 	begin 
 		if rising_edge(clk_vga) then
-			if U = '1' then
+			if btnB = '1' then
 				start <= '1';
 			elsif vidas = 0 then
 				start <= '0';
@@ -630,26 +631,10 @@ begin
 	end process iniciar;
 	--
 	
-	reinicio : process (clk_vga) is
-	begin
-		if rising_edge(clk_vga) then
-			if vidas = 0 and U = '1' then
-				reiniciar <= '1';
-			else
-				reiniciar <= '0';
-			end if;
-		end if;
-	end process reinicio;
-	--
-	
-	quitar_vida : process (explota_nave, reiniciar)
+	quitar_vida : process (explota_nave)
 	begin
 		if explota_nave = '1' then
 			vidas <= vidas-1;
-		end if;
-		
-		if reiniciar = '1' then
-			vidas <= 3;
 		end if;
 	end process quitar_vida;
 	--
@@ -786,7 +771,7 @@ begin
 	impacto_asteroide : process(clk25) is
 	begin
 		if rising_edge(clk25) then
-			if vidas = 0 and U = '1' then
+			if vidas = 0 and btnB = '1' then
 				destruidos <= 0;
 			end if;
 			
@@ -914,6 +899,29 @@ begin
 	end process posicionar_asteroide;
 	--
 	
+	velocidad_asteroide: process(clk_vga) is
+	begin 
+		if rising_edge(clk_vga) then
+			if destruidos < 50 then
+				vel_asteroide <= 0;
+			elsif destruidos >= 50 and destruidos < 100 then
+				vel_asteroide <= 1;
+			elsif destruidos >= 100 and destruidos < 150 then
+				vel_asteroide <= 2;
+			elsif destruidos >= 150 and destruidos < 200 then
+				vel_asteroide <= 3;
+			elsif destruidos >= 200 and destruidos < 250 then
+				vel_asteroide <= 4;
+			elsif destruidos >= 250 and destruidos < 300 then
+				vel_asteroide <= 5;
+			elsif destruidos >= 300 and destruidos < 350 then
+				vel_asteroide <= 6;
+			end if;
+		end if;
+	end process velocidad_asteroide;
+	
+	
+	
 	-- Proceso que aumenta el contador en Y de cada asteroide por cada ciclo de reloj
 	mover_asteroide : process(clk25,explota_asteroide0,explota_asteroide1,explota_asteroide2,explota_asteroide3,explota_asteroide4,explota_asteroide5,explota_asteroide6,explota_asteroide7) is
 		-- varifica que si se ha llegado al fondo el contador se reinicie. Además, asegura que cada contador
@@ -929,7 +937,7 @@ begin
 				elsif explota_asteroide0 = '1' then
 					desp_asteroide0 <= 479;
 				else
-					desp_asteroide0 <= desp_asteroide0+1+destruidos/50;
+					desp_asteroide0 <= desp_asteroide0+1+vel_asteroide;
 				end if;
 
 				if desp_asteroide1 >= 479 or (desp_asteroide0<distancia and desp_asteroide1=0)then
@@ -937,7 +945,7 @@ begin
 				elsif explota_asteroide1 = '1' then
 					desp_asteroide1 <= 479;
 				else
-					desp_asteroide1 <= desp_asteroide1+1+destruidos/50;
+					desp_asteroide1 <= desp_asteroide1+1+vel_asteroide;
 				end if;
 				
 				if desp_asteroide2 >= 479 or (desp_asteroide1<distancia and desp_asteroide2=0) then
@@ -945,7 +953,7 @@ begin
 				elsif explota_asteroide2 = '1' then
 					desp_asteroide2 <= 479;
 				else
-					desp_asteroide2 <= desp_asteroide2+1+destruidos/50;
+					desp_asteroide2 <= desp_asteroide2+1+vel_asteroide;
 				end if;
 
 				if desp_asteroide3 >= 479 or (desp_asteroide2<distancia and desp_asteroide3=0) then
@@ -953,7 +961,7 @@ begin
 				elsif explota_asteroide3 = '1' then
 					desp_asteroide3 <= 479;
 				else
-					desp_asteroide3 <= desp_asteroide3+1+destruidos/50;
+					desp_asteroide3 <= desp_asteroide3+1+vel_asteroide;
 				end if;
 
 				if desp_asteroide4 >= 479 or (desp_asteroide3<distancia and desp_asteroide4=0) then
@@ -961,7 +969,7 @@ begin
 				elsif explota_asteroide4 = '1' then
 					desp_asteroide4 <= 479;
 				else
-					desp_asteroide4 <= desp_asteroide4+1+destruidos/50;
+					desp_asteroide4 <= desp_asteroide4+1+vel_asteroide;
 				end if;
 
 				if desp_asteroide5 >= 479 or (desp_asteroide4<distancia and desp_asteroide5=0) then
@@ -969,7 +977,7 @@ begin
 				elsif explota_asteroide5 = '1' then
 					desp_asteroide5 <= 479;
 				else
-					desp_asteroide5 <= desp_asteroide5+1+destruidos/50;
+					desp_asteroide5 <= desp_asteroide5+1+vel_asteroide;
 				end if;
 
 				if desp_asteroide6 >= 479 or (desp_asteroide5<distancia and desp_asteroide6=0) then
@@ -977,7 +985,7 @@ begin
 				elsif explota_asteroide6 = '1' then
 					desp_asteroide6 <= 479;
 				else
-					desp_asteroide6 <= desp_asteroide6+1+destruidos/50;
+					desp_asteroide6 <= desp_asteroide6+1+vel_asteroide;
 				end if;
 
 				if desp_asteroide7 >= 479 or (desp_asteroide6<distancia and desp_asteroide7=0) then
@@ -985,17 +993,17 @@ begin
 				elsif explota_asteroide7 = '1' then
 					desp_asteroide7 <= 479;
 				else
-					desp_asteroide7 <= desp_asteroide7+1+destruidos/50;
+					desp_asteroide7 <= desp_asteroide7+1+vel_asteroide;
 				end if;
 			else
-				desp_asteroide0 <= -1;
-				desp_asteroide1 <= -1;
-				desp_asteroide2 <= -1;
-				desp_asteroide3 <= -1;
-				desp_asteroide4 <= -1;
-				desp_asteroide5 <= -1;
-				desp_asteroide6 <= -1;
-				desp_asteroide7 <= -1;
+				desp_asteroide0 <= 0;
+				desp_asteroide1 <= 0;
+				desp_asteroide2 <= 0;
+				desp_asteroide3 <= 0;
+				desp_asteroide4 <= 0;
+				desp_asteroide5 <= 0;
+				desp_asteroide6 <= 0;
+				desp_asteroide7 <= 0;
 				
 			end if;
 		end if;
@@ -1201,7 +1209,7 @@ begin
 					vga_color <= x"C82";
 					
 				elsif disparo_vali = '1' then
-					vga_color <= x"F00"; -- rojo
+					vga_color <= x"F00";
 				
 				elsif num1_vali = '1' then
 					vga_color <= color_numero1;
@@ -1232,8 +1240,8 @@ begin
 	end process mostrar_pixel;
 	--
 	
-	nave_vali <= '1' when (column > despX and column < despX+tam+1 and row > despY and row < despY+tam+1) else '0';
-	--nave_vali <= '1' when (column > despX and column < despX+tam+1 and row > v_video-tam-1 and row <= v_video-1) else '0';
+	--nave_vali <= '1' when (column > despX and column < despX+tam+1 and row > despY and row < despY+tam+1) else '0';
+	nave_vali <= '1' when (column > despX and column < despX+tam+1 and row > v_video-tam-1 and row <= v_video-1) else '0';
 	over_vali <= '1' when (vidas = 0 and column > 270 and column < 371 and row > 190 and row < 291) else '0';
 	
 	-- Definimos los asteroides que apareceran en la pantalla
